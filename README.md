@@ -46,3 +46,20 @@ The script will mount a `reports` directory in the project root. After a success
 
 -   XML Surefire reports in `reports/surefire-reports`.
 -   HTML Surefire report in `reports/site/surefire-report.html`. You can open this file in a browser for a better view of the test results. 
+
+
+### TODO list
+
+* add reactive support using webflux
+* add relational database PostGIS and hibernate-spatial
+    ```
+    services:
+        postgres:
+            image: postgis/postgis
+            environment:
+            POSTGRES_DB: geo
+            POSTGRES_USER: user
+            POSTGRES_PASSWORD: pass
+    ```
+* add NoSQL database MongoDB 
+* integration with Azure DevOps (Pipeline, Boards)
