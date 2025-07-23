@@ -8,6 +8,7 @@ This is a simple Spring Boot application that provides a REST API to find the 5 
 2.  Navigate to the `jumbo-stores-finder` directory.
 3.  Run the application using the following command:
     ```
+    ./mvnw clean install
     ./mvnw spring-boot:run
     ```
 4.  The application will start on port 8080.
@@ -19,7 +20,7 @@ To find the 5 closest stores, you can send a GET request to the `/stores` endpoi
 **Example:**
 
 ```bash
-curl "http://localhost:8080/stores?latitude=52.3676&longitude=4.9041"
+curl "http://localhost:8080/stores?latitude=51.6167&longitude=5.5486"
 ```
 
 ## API Documentation

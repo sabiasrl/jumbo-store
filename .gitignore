@@ -42,3 +42,6 @@ build-number.properties
 
 # Mac
 .DS_Store 
+
+#Local
+reports/

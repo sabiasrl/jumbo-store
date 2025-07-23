@@ -25,7 +25,7 @@ class StoreControllerIT {
     void getClosestStores_shouldReturn5Stores() {
         given()
                 .when()
-                .get("/stores?latitude=52.3676&longitude=4.9041")
+                .get("/stores?latitude=51.6167&longitude=5.5486")
                 .then()
                 .statusCode(200)
                 .body("$", hasSize(5));
