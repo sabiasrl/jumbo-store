@@ -1,7 +1,7 @@
 package com.jumbo.stores.service;
 
+import com.jumbo.stores.dto.StoreDto;
 import com.jumbo.stores.model.Store;
-import com.jumbo.stores.model.StoreDto;
 import com.jumbo.stores.repository.StoreRepository;
 import com.jumbo.stores.utils.DistanceCalculator;
 import lombok.RequiredArgsConstructor;

@@ -1,6 +1,6 @@
 package com.jumbo.stores.controller;
 
-import com.jumbo.stores.model.StoreDto;
+import com.jumbo.stores.dto.StoreDto;
 import com.jumbo.stores.service.StoreService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
