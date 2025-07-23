@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<profiles version="13">
+<profile kind="CodeFormatterProfile" name="Eclipse" version="13">
+<setting id="org.eclipse.jdt.core.formatter.import_grouping" value="java,javax,org,com"/>
+<setting id="org.eclipse.jdt.core.formatter.import_ordering" value="java,javax,org,com"/>
+<setting id="org.eclipse.jdt.core.formatter.join_wrapped_lines" value="true"/>
+<setting id="org.eclipse.jdt.core.formatter.number_of_empty_lines_to_preserve" value="1"/>
+<setting id="org.eclipse.jdt.core.formatter.tab_char" value="space"/>
+<setting id="org.eclipse.jdt.core.formatter.use_tabs_only_for_leading_indentations" value="false"/>
+</profile>
+</profiles> 

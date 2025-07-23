@@ -28,4 +28,26 @@ The H2 in-memory database console is enabled. You can access it at http://localh
 
 - **JDBC URL:** jdbc:h2:mem:testdb
 - **User Name:** sa
-- **Password:** (leave blank) 
+- **Password:** (leave blank)
+
+## Development
+
+### Running Tests
+
+To run the unit tests, use the following command:
+
+```
+./mvnw test
+```
+
+### Code Coverage
+
+The project uses the JaCoCo plugin to generate a code coverage report. After running the tests, you can find the report in `target/site/jacoco/index.html`.
+
+### Code Formatting
+
+The project uses the `formatter-maven-plugin` to format the code. To format the code, run the following command:
+
+```
+./mvnw formatter:format
+``` 
