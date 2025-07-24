@@ -27,6 +27,7 @@ public class Store {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	@Column(name = "address_name")
 	@JsonProperty("addressName")
 	private String addressName;
 

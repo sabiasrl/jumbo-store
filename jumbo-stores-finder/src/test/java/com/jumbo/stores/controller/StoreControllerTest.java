@@ -1,7 +1,6 @@
 package com.jumbo.stores.controller;
 
 import com.jumbo.stores.dto.StoreDto;
-import com.jumbo.stores.repository.StoreRepository;
 import com.jumbo.stores.service.StoreService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
