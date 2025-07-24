@@ -2,14 +2,27 @@
 
 This is a simple Spring Boot application that provides a REST API to find the 5 closest Jumbo stores to a given location using PostGIS spatial functions.
 
-## How to run the application
+## Quick Start with Docker Compose
+
+The easiest way to run the application is using Docker Compose, which automatically sets up PostgreSQL with PostGIS:
+
+```bash
+docker-compose up --build
+```
+
+This will:
+- Start a PostgreSQL database with PostGIS extension
+- Build and run the Spring Boot application
+- Make the API available at http://localhost:8080
+
+## Local Development Setup
 
 ### Prerequisites
 
 1. Make sure you have Java 21 and Maven installed.
 2. Install PostgreSQL with PostGIS extension:
 
-   **Using Docker (recommended):**
+   **Using Docker (recommended for local development):**
    ```bash
    docker run --name jumbo-postgres \
      -e POSTGRES_DB=jumbo \
@@ -19,28 +32,44 @@ This is a simple Spring Boot application that provides a REST API to find the 5 
      -d postgis/postgis:16-3.4
    ```
 
-   **Using local PostgreSQL:**
+   **Using local PostgreSQL installation:**
    - Install PostgreSQL and PostGIS extension
    - Create database: `CREATE DATABASE jumbo;`
    - Create user: `CREATE USER jumbo WITH PASSWORD 'jumbo';`
    - Grant privileges: `GRANT ALL PRIVILEGES ON DATABASE jumbo TO jumbo;`
    - Enable PostGIS: `CREATE EXTENSION postgis;`
 
-### Running the application
+### Running the application locally
 
 1. Navigate to the `jumbo-stores-finder` directory.
-2. Run the application using the following command:
-   ```
+2. Run the application with the local profile:
+   ```bash
    ./mvnw clean install
-   ./mvnw spring-boot:run
+   ./mvnw spring-boot:run -Dspring.profiles.active=local
    ```
 3. The application will start on port 8080.
 
-**Note:** The application requires a PostgreSQL database with PostGIS extension. For development and testing, the application uses Testcontainers to automatically spin up a PostGIS instance.
+## Configuration Profiles
+
+The application supports different configuration profiles:
+
+- **Default profile**: Uses `postgis` hostname (for Docker Compose)
+- **Local profile**: Uses `localhost` hostname (for local development)
+
+### Environment Variables (Docker Compose)
+
+When running with Docker Compose, the following environment variables are automatically set:
+
+```yaml
+SPRING_DATASOURCE_URL: jdbc:postgresql://postgis:5432/jumbo
+SPRING_DATASOURCE_USERNAME: jumbo
+SPRING_DATASOURCE_PASSWORD: jumbo
+SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
+```
 
 ## API Usage
 
-To find the 5 closest stores, you can send a GET request to the `/stores` endpoint with the `latitude` and `longitude` query parameters.
+To find the 5 closest stores, send a GET request to the `/stores` endpoint with `latitude` and `longitude` query parameters.
 
 **Example:**
 
@@ -67,6 +96,18 @@ This application uses PostgreSQL with PostGIS extension for spatial queries. The
 - **PostGIS spatial functions**: `ST_DistanceSphere` for efficient proximity calculations
 - **Geometry data types**: `GEOMETRY(Point,4326)` for storing store locations
 - **Real spatial data**: All 587 Jumbo store locations from the Netherlands
+
+### Database Health Check
+
+The Docker Compose configuration includes a health check for PostgreSQL to ensure the database is ready before starting the application:
+
+```yaml
+healthcheck:
+  test: ["CMD-SHELL", "pg_isready -U jumbo -d jumbo"]
+  interval: 30s
+  timeout: 10s
+  retries: 5
+```
 
 ## Actuator Endpoints
 
@@ -113,14 +154,41 @@ To format the code and organize the imports, run the following command:
 
 ## Docker
 
-To build the Docker image, run the following command from the `jumbo-stores-finder` directory:
+### Building the Application Image
+
+To build the Docker image manually:
 
 ```bash
+cd jumbo-stores-finder
 docker build -t jumbo-stores-finder .
 ```
 
-To run the container:
+### Running with Docker Compose
+
+The recommended way to run the application is with Docker Compose:
 
 ```bash
-docker run -p 8080:8080 jumbo-stores-finder
+# Start all services
+docker-compose up --build
+
+# Run in background
+docker-compose up --build -d
+
+# Stop all services
+docker-compose down
+
+# View logs
+docker-compose logs jumbo-stores-finder
+```
+
+### Manual Docker Run (requires external PostgreSQL)
+
+If you want to run the container manually (not recommended):
+
+```bash
+docker run -p 8080:8080 \
+  -e SPRING_DATASOURCE_URL=jdbc:postgresql://host.docker.internal:5432/jumbo \
+  -e SPRING_DATASOURCE_USERNAME=jumbo \
+  -e SPRING_DATASOURCE_PASSWORD=jumbo \
+  jumbo-stores-finder
 ``` 
