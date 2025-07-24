@@ -21,7 +21,7 @@ public class OpenApiTest {
     public void openApiSpecification_shouldBeAvailable() throws Exception {
         mockMvc.perform(get("/v3/api-docs"))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.openapi").value("3.0.1"))
+                .andExpect(jsonPath("$.openapi").value("3.1.0"))
                 .andExpect(jsonPath("$.info.title").value("OpenAPI definition"))
                 .andExpect(jsonPath("$.paths./stores").exists());
     }

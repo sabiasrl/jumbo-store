@@ -16,10 +16,8 @@ if [ $EXIT_CODE -eq 0 ]; then
   echo "E2E tests passed. Generating and printing site reports..."
   
   # Run a temporary container to generate the site and print the report
-  docker-compose run --rm e2e bash -c "mvn -f /tests/pom.xml --quiet site && echo 'Surefire Report:' && cat /tests/target/site/surefire-report.html"
-  
-  docker-compose down
-  echo "E2E tests passed."
+  docker-compose run --rm e2e mvn -f /tests/pom.xml --quiet site
+  echo "HTML report generated at reports/site/surefire-report.html"
   echo "Script finished successfully."
   exit 0
 else
