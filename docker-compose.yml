@@ -1,7 +1,21 @@
 version: '3.8'
 services:
+  postgis:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: jumbo
+      POSTGRES_USER: jumbo
+      POSTGRES_PASSWORD: jumbo
+    ports:
+      - "5432:5432"
   jumbo-stores-finder:
     build: ./jumbo-stores-finder
+    depends_on:
+      - postgis
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgis:5432/jumbo
+      SPRING_DATASOURCE_USERNAME: jumbo
+      SPRING_DATASOURCE_PASSWORD: jumbo
     ports:
       - "8080:8080"
   e2e:

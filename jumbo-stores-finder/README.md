@@ -1,17 +1,42 @@
 # Jumbo Stores Finder
 
-This is a simple Spring Boot application that provides a REST API to find the 5 closest Jumbo stores to a given location.
+This is a simple Spring Boot application that provides a REST API to find the 5 closest Jumbo stores to a given location using PostGIS spatial functions.
 
 ## How to run the application
 
-1.  Make sure you have Java 21 and Maven installed.
-2.  Navigate to the `jumbo-stores-finder` directory.
-3.  Run the application using the following command:
-    ```
-    ./mvnw clean install
-    ./mvnw spring-boot:run
-    ```
-4.  The application will start on port 8080.
+### Prerequisites
+
+1. Make sure you have Java 21 and Maven installed.
+2. Install PostgreSQL with PostGIS extension:
+
+   **Using Docker (recommended):**
+   ```bash
+   docker run --name jumbo-postgres \
+     -e POSTGRES_DB=jumbo \
+     -e POSTGRES_USER=jumbo \
+     -e POSTGRES_PASSWORD=jumbo \
+     -p 5432:5432 \
+     -d postgis/postgis:16-3.4
+   ```
+
+   **Using local PostgreSQL:**
+   - Install PostgreSQL and PostGIS extension
+   - Create database: `CREATE DATABASE jumbo;`
+   - Create user: `CREATE USER jumbo WITH PASSWORD 'jumbo';`
+   - Grant privileges: `GRANT ALL PRIVILEGES ON DATABASE jumbo TO jumbo;`
+   - Enable PostGIS: `CREATE EXTENSION postgis;`
+
+### Running the application
+
+1. Navigate to the `jumbo-stores-finder` directory.
+2. Run the application using the following command:
+   ```
+   ./mvnw clean install
+   ./mvnw spring-boot:run
+   ```
+3. The application will start on port 8080.
+
+**Note:** The application requires a PostgreSQL database with PostGIS extension. For development and testing, the application uses Testcontainers to automatically spin up a PostGIS instance.
 
 ## API Usage
 
@@ -35,13 +60,13 @@ curl http://localhost:8080/v3/api-docs
 
 You can also interact with the API using the Swagger UI at [/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html).
 
-## H2 Console
+## Database
 
-The H2 in-memory database console is enabled. You can access it at http://localhost:8080/h2-console.
+This application uses PostgreSQL with PostGIS extension for spatial queries. The application leverages:
 
-- **JDBC URL:** jdbc:h2:mem:testdb
-- **User Name:** sa
-- **Password:** (leave blank)
+- **PostGIS spatial functions**: `ST_DistanceSphere` for efficient proximity calculations
+- **Geometry data types**: `GEOMETRY(Point,4326)` for storing store locations
+- **Real spatial data**: All 587 Jumbo store locations from the Netherlands
 
 ## Actuator Endpoints
 
@@ -69,6 +94,8 @@ To run the unit tests, use the following command:
 ```bash
 ./mvnw test
 ```
+
+Tests use Testcontainers with PostGIS to ensure they run against the same database technology as production.
 
 ### Code Coverage
 

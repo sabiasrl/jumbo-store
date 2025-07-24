@@ -51,15 +51,4 @@ The script will mount a `reports` directory in the project root. After a success
 ### TODO list
 
 * add reactive support using webflux
-* add relational database PostGIS and hibernate-spatial
-    ```
-    services:
-        postgres:
-            image: postgis/postgis
-            environment:
-            POSTGRES_DB: geo
-            POSTGRES_USER: user
-            POSTGRES_PASSWORD: pass
-    ```
-* add NoSQL database MongoDB 
 * integration with Azure DevOps (Pipeline, Boards)
