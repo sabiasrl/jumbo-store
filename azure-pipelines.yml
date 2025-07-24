@@ -1,0 +1,149 @@
+trigger:
+  - features/postgis
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  # Docker Compose project name
+  dockerComposeProjectName: 'jumbo-store'
+  # Maven settings
+  mavenVersion: '3.9.6'
+  javaVersion: '21'
+
+stages:
+- stage: Build
+  displayName: 'Build and Test'
+  jobs:
+  - job: BuildAndTest
+    displayName: 'Build and Test Application'
+    steps:
+    - task: UseJavaVersion@0
+      displayName: 'Use Java 21'
+      inputs:
+        versionSpec: '21'
+        jdkArchitectureOption: 'x64'
+
+    - task: Cache@2
+      displayName: 'Cache Maven packages'
+      inputs:
+        key: 'maven | "$(Agent.OS)" | **/pom.xml'
+        restoreKeys: |
+          maven | "$(Agent.OS)"
+          maven
+        path: $(MAVEN_CACHE_FOLDER)
+
+    - script: |
+        echo "Installing Maven..."
+        wget https://archive.apache.org/dist/maven/maven-3/$(mavenVersion)/binaries/apache-maven-$(mavenVersion)-bin.tar.gz
+        tar -xzf apache-maven-$(mavenVersion)-bin.tar.gz
+        sudo mv apache-maven-$(mavenVersion) /opt/maven
+        echo "M2_HOME=/opt/maven" >> $GITHUB_ENV
+        echo "/opt/maven/bin" >> $GITHUB_PATH
+      displayName: 'Install Maven'
+
+    - script: |
+        cd jumbo-stores-finder
+        mvn clean compile test
+      displayName: 'Build and Unit Test'
+      env:
+        MAVEN_OPTS: '-Dmaven.repo.local=$(MAVEN_CACHE_FOLDER)'
+
+    - script: |
+        echo "Building Docker images..."
+        docker-compose build
+      displayName: 'Build Docker Images'
+
+- stage: IntegrationTest
+  displayName: 'Integration Tests'
+  dependsOn: Build
+  condition: succeeded()
+  jobs:
+  - job: DockerComposeTest
+    displayName: 'Docker Compose Integration Test'
+    steps:
+    - script: |
+        echo "Starting PostGIS database..."
+        docker-compose up -d postgis
+        echo "Waiting for PostGIS to be ready..."
+        
+        # Wait for PostGIS to be healthy
+        for i in {1..30}; do
+          if docker-compose exec -T postgis pg_isready -U jumbo -d jumbo; then
+            echo "PostGIS is ready!"
+            break
+          fi
+          echo "Waiting for PostGIS... ($i/30)"
+          sleep 10
+        done
+        
+        # Final check
+        if ! docker-compose exec -T postgis pg_isready -U jumbo -d jumbo; then
+          echo "PostGIS failed to start properly"
+          docker-compose logs postgis
+          exit 1
+        fi
+      displayName: 'Start and Verify PostGIS Database'
+
+    - script: |
+        echo "Starting application with Liquibase..."
+        docker-compose up -d jumbo-stores-finder
+        echo "Waiting for application to start..."
+        
+        # Wait for application to be ready
+        for i in {1..60}; do
+          if curl -s http://localhost:8080/actuator/health | grep -q "UP"; then
+            echo "Application is ready!"
+            break
+          fi
+          echo "Waiting for application... ($i/60)"
+          sleep 5
+        done
+        
+        # Final check
+        if ! curl -s http://localhost:8080/actuator/health | grep -q "UP"; then
+          echo "Application failed to start properly"
+          docker-compose logs jumbo-stores-finder
+          exit 1
+        fi
+      displayName: 'Start and Verify Application'
+
+    - script: |
+        echo "Running API verification tests..."
+        docker-compose up --abort-on-container-exit --exit-code-from e2e
+        EXIT_CODE=$?
+        echo "Test exit code: $EXIT_CODE"
+        
+        if [ $EXIT_CODE -eq 0 ]; then
+          echo "✅ All tests passed successfully!"
+        else
+          echo "❌ Tests failed"
+          docker-compose logs e2e
+        fi
+        
+        exit $EXIT_CODE
+      displayName: 'Run E2E Tests'
+
+    - script: |
+        echo "Cleaning up containers..."
+        docker-compose down -v
+        docker system prune -f
+      displayName: 'Cleanup'
+      condition: always()
+
+- stage: Deploy
+  displayName: 'Deploy'
+  dependsOn: IntegrationTest
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/main'))
+  jobs:
+  - job: DeployToStaging
+    displayName: 'Deploy to Staging'
+    steps:
+    - script: |
+        echo "Deployment stage - placeholder for actual deployment"
+        echo "This would typically include:"
+        echo "- Pushing Docker images to container registry"
+        echo "- Deploying to staging environment"
+        echo "- Running smoke tests"
+        echo "- Promoting to production if staging tests pass"
+      displayName: 'Deploy Application' 
