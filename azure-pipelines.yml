@@ -143,21 +143,3 @@ stages:
         docker system prune -f
       displayName: 'Cleanup'
       condition: always()
-
-- stage: Deploy
-  displayName: 'Deploy stage'
-  dependsOn: IntegrationTest
-  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/features/postgis'))
-  jobs:
-  - job: Deploy
-    displayName: 'Deploy jumbo-store-finder Application'
-    steps:
-    - script: |
-        echo "jumbo-store-finder deployment stage"
-        echo "This would typically include:"
-        echo "- Pushing Docker images to container registry"
-        echo "- Deploying to staging environment"
-        echo "- Running additional jumbo-store-finder specific tests"
-        echo "- Promoting to production if all tests pass"
-        echo "✅ jumbo-store-finder feature deployment completed successfully!"
-      displayName: 'Deploy jumbo-store-finder Application' 
