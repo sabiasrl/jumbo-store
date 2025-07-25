@@ -1,4 +1,4 @@
-package com.jumbo.stores.exception;
+package com.jumbo.stores.adapter.in.web.exception;
 
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.HttpStatus;

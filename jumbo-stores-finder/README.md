@@ -1,138 +1,162 @@
 # Jumbo Stores Finder
 
-This is a simple Spring Boot application that provides a REST API to find the 5 closest Jumbo stores to a given location using PostGIS spatial functions.
+A Spring Boot application that finds the closest Jumbo stores based on geographic coordinates using PostGIS for spatial queries.
 
-## Quick Start with Docker Compose
+## Architecture
 
-The easiest way to run the application is using Docker Compose, which automatically sets up PostgreSQL with PostGIS:
+This project follows the **Hexagonal Architecture** (Ports and Adapters) design patterns:
 
-```bash
-docker-compose up --build
+```
+src/main/java/com/jumbo/stores/
+├── application/           # Application layer (services, use cases, ports)
+│   ├── port/
+│   │   ├── in/           # Incoming ports (interfaces called by controllers)
+│   │   │   └── FindClosestStoresUseCase.java
+│   │   └── out/          # Outgoing ports (interfaces implemented by adapters)
+│   │       └── StoreRepository.java
+│   └── service/          # Application services (implement in-ports)
+│       └── StoreService.java
+├── domain/               # Domain layer (business logic, entities, value objects)
+│   ├── model/           # Domain models
+│   │   └── Store.java
+│   └── service/         # Pure domain services
+│       └── DistanceCalculator.java
+├── adapter/             # Adapters (implement in/out ports)
+│   ├── in/
+│   │   └── web/         # REST controllers (Spring Web)
+│   │       ├── StoreController.java
+│   │       ├── dto/
+│   │       │   └── StoreDto.java
+│   │       └── exception/
+│   │           └── ApiExceptionHandler.java
+│   └── out/
+│       └── persistence/ # JPA repositories, MongoDB, etc.
+│           ├── StoreJpaEntity.java
+│           ├── StoreJpaRepository.java
+│           └── StorePersistenceAdapter.java
+└── JumboStoresFinderApplication.java
 ```
 
-This will:
-- Start a PostgreSQL database with PostGIS extension
-- Build and run the Spring Boot application
-- Make the API available at http://localhost:8080
+## Layer Responsibilities
 
-## Local Development Setup
+### 1. Domain Layer (`domain/`)
+- **Purpose**: Contains the core business logic and rules
+- **Components**:
+  - `Store`: Domain entity representing a store
+  - `DistanceCalculator`: Pure domain service for distance calculations
+- **Characteristics**: 
+  - No dependencies on external frameworks
+  - Pure business logic
+  - Framework-agnostic
+
+### 2. Application Layer (`application/`)
+- **Purpose**: Orchestrates use cases and coordinates between domain and adapters
+- **Components**:
+  - **Ports**: Define contracts for incoming and outgoing dependencies
+  - **Services**: Implement use cases and coordinate domain objects
+- **Characteristics**:
+  - Contains use case implementations
+  - Depends only on domain layer
+  - Defines ports (interfaces) for adapters
+
+### 3. Adapter Layer (`adapter/`)
+- **Purpose**: Implements ports to interact with external systems
+- **Components**:
+  - **In Adapters**: Controllers, CLI, etc.
+  - **Out Adapters**: Database repositories, external APIs, etc.
+- **Characteristics**:
+  - Implements ports defined in application layer
+  - Handles framework-specific concerns
+  - Converts between domain objects and external formats
+
+
+## Features
+
+- **Spatial Queries**: Uses PostGIS for efficient geographic distance calculations
+- **Hexagonal Architecture**: Clean separation of concerns with ports and adapters
+- **REST API**: Provides a simple REST endpoint to find closest stores
+- **Validation**: Input validation for coordinates
+- **Documentation**: OpenAPI/Swagger documentation
+- **Monitoring**: Spring Boot Actuator for health checks
+- **Testing**: Comprehensive test suite with unit, integration, and E2E tests
+
+## API Endpoints
+
+### Find Closest Stores
+
+```
+GET /stores?latitude={lat}&longitude={lng}
+```
+
+**Parameters:**
+- `latitude` (required): Latitude coordinate (-90.0 to 90.0)
+- `longitude` (required): Longitude coordinate (-180.0 to 180.0)
+
+**Response:**
+```json
+[
+  {
+    "addressName": "Jumbo Store Name",
+    "latitude": 52.123456,
+    "longitude": 5.123456,
+    "distance": 1.234567
+  }
+]
+```
+
+## Quick Start
 
 ### Prerequisites
 
-1. Make sure you have Java 21 and Maven installed.
-2. Install PostgreSQL with PostGIS extension:
+- Java 21
+- Docker and Docker Compose
+- Maven
 
-   **Using Docker (recommended for local development):**
-   ```bash
-   docker run --name jumbo-postgres \
-     -e POSTGRES_DB=jumbo \
-     -e POSTGRES_USER=jumbo \
-     -e POSTGRES_PASSWORD=jumbo \
-     -p 5432:5432 \
-     -d postgis/postgis:16-3.4
-   ```
-
-   **Using local PostgreSQL installation:**
-   - Install PostgreSQL and PostGIS extension
-   - Create database: `CREATE DATABASE jumbo;`
-   - Create user: `CREATE USER jumbo WITH PASSWORD 'jumbo';`
-   - Grant privileges: `GRANT ALL PRIVILEGES ON DATABASE jumbo TO jumbo;`
-   - Enable PostGIS: `CREATE EXTENSION postgis;`
-
-### Running the application locally
-
-1. Navigate to the `jumbo-stores-finder` directory.
-2. Run the application with the local profile:
-   ```bash
-   ./mvnw clean install
-   ./mvnw spring-boot:run -Dspring.profiles.active=local
-   ```
-3. The application will start on port 8080.
-
-## Configuration Profiles
-
-The application supports different configuration profiles:
-
-- **Default profile**: Uses `postgis` hostname (for Docker Compose)
-- **Local profile**: Uses `localhost` hostname (for local development)
-
-### Environment Variables (Docker Compose)
-
-When running with Docker Compose, the following environment variables are automatically set:
-
-```yaml
-SPRING_DATASOURCE_URL: jdbc:postgresql://postgis:5432/jumbo
-SPRING_DATASOURCE_USERNAME: jumbo
-SPRING_DATASOURCE_PASSWORD: jumbo
-SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
-```
-
-## API Usage
-
-To find the 5 closest stores, send a GET request to the `/stores` endpoint with `latitude` and `longitude` query parameters.
-
-**Example:**
+### Running with Docker Compose
 
 ```bash
+# Start the application with PostGIS
+docker compose up -d --build
+
+# Test the API
 curl "http://localhost:8080/stores?latitude=51.6167&longitude=5.5486"
 ```
 
-## API Documentation
-
-The OpenAPI specification for this API is available at [/v3/api-docs](http://localhost:8080/v3/api-docs).
-
-**Example:**
+### Running Locally
 
 ```bash
-curl http://localhost:8080/v3/api-docs
-```
+# Build the project
+./mvnw clean compile
 
-You can also interact with the API using the Swagger UI at [/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html).
+# Run tests
+./mvnw test
 
-## Database
+# Start PostGIS (alternative to Docker Compose)
+docker run --name jumbo-postgres \
+  -e POSTGRES_DB=jumbo \
+  -e POSTGRES_USER=jumbo \
+  -e POSTGRES_PASSWORD=jumbo \
+  -p 5432:5432 \
+  -d postgis/postgis:16-3.4
 
-This application uses PostgreSQL with PostGIS extension for spatial queries. The application leverages:
-
-- **PostGIS spatial functions**: `ST_DistanceSphere` for efficient proximity calculations
-- **Geometry data types**: `GEOMETRY(Point,4326)` for storing store locations
-- **Real spatial data**: All 587 Jumbo store locations from the Netherlands
-
-### Database Health Check
-
-The Docker Compose configuration includes a health check for PostgreSQL to ensure the database is ready before starting the application:
-
-```yaml
-healthcheck:
-  test: ["CMD-SHELL", "pg_isready -U jumbo -d jumbo"]
-  interval: 30s
-  timeout: 10s
-  retries: 5
-```
-
-## Actuator Endpoints
-
-The Spring Boot Actuator is enabled and all endpoints are exposed. Here are some of the most useful endpoints:
-
-- **Health:** [/actuator/health](http://localhost:8080/actuator/health)
-- **Info:** [/actuator/info](http://localhost:8080/actuator/info)
-- **Metrics:** [/actuator/metrics](http://localhost:8080/actuator/metrics)
-- **Beans:** [/actuator/beans](http://localhost:8080/actuator/beans)
-- **Mappings:** [/actuator/mappings](http://localhost:8080/actuator/mappings)
-
-**Examples:**
-
-```bash
-curl http://localhost:8080/actuator/health
-curl http://localhost:8080/actuator/info
+# Run the application
+./mvnw spring-boot:run -Dspring-boot.run.arguments="--spring.profiles.active=local"
 ```
 
 ## Development
 
-### Running Tests
+### Project Structure
 
-To run the unit tests, use the following command:
+The project follows hexagonal architecture principles:
+
+- **Domain Layer**: Contains business logic and entities
+- **Application Layer**: Orchestrates use cases and defines ports
+- **Adapter Layer**: Implements ports for external systems
+
+### Testing
 
 ```bash
+# Run all tests
 ./mvnw test
 ```
 
@@ -169,16 +193,16 @@ The recommended way to run the application is with Docker Compose:
 
 ```bash
 # Start all services
-docker-compose up --build
+docker compose up --build
 
 # Run in background
-docker-compose up --build -d
+docker compose up --build -d
 
 # Stop all services
-docker-compose down
+docker compose down
 
 # View logs
-docker-compose logs jumbo-stores-finder
+docker compose logs jumbo-stores-finder
 ```
 
 ### Manual Docker Run (requires external PostgreSQL)

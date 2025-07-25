@@ -1,5 +1,6 @@
 trigger:
   - main
+  - features/hexagonal-architecture-design
 
 pool:
   vmImage: 'ubuntu-latest'

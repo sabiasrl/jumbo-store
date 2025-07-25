@@ -26,7 +26,7 @@ print_error() {
 # Cleanup function
 cleanup() {
     print_status "Cleaning up containers..."
-    docker-compose down -v
+    docker compose down -v
     docker system prune -f
 }
 
@@ -35,16 +35,16 @@ trap cleanup EXIT
 
 # Step 1: Build Docker images
 print_status "Building Docker images..."
-docker-compose build
+    docker compose build
 
 # Step 2: Start PostGIS database
 print_status "Starting PostGIS database..."
-docker-compose up -d postgis
+    docker compose up -d postgis
 
 # Step 3: Wait for PostGIS to be ready
 print_status "Waiting for PostGIS to be ready..."
 for i in {1..30}; do
-    if docker-compose exec -T postgis pg_isready -U jumbo -d jumbo > /dev/null 2>&1; then
+            if docker compose exec -T postgis pg_isready -U jumbo -d jumbo > /dev/null 2>&1; then
         print_status "PostGIS is ready!"
         break
     fi
@@ -53,15 +53,15 @@ for i in {1..30}; do
 done
 
 # Final check for PostGIS
-if ! docker-compose exec -T postgis pg_isready -U jumbo -d jumbo > /dev/null 2>&1; then
-    print_error "PostGIS failed to start properly"
-    docker-compose logs postgis
+        if ! docker compose exec -T postgis pg_isready -U jumbo -d jumbo > /dev/null 2>&1; then
+            print_error "PostGIS failed to start properly"
+            docker compose logs postgis
     exit 1
 fi
 
 # Step 4: Start application
 print_status "Starting application with PostGIS..."
-docker-compose up -d jumbo-stores-finder
+    docker compose up -d jumbo-stores-finder
 
 # Step 5: Wait for application to be ready
 print_status "Waiting for application to start..."
@@ -77,7 +77,7 @@ done
 # Final check for application
 if ! curl -s http://localhost:8080/actuator/health | grep -q "UP"; then
     print_error "Application failed to start properly"
-    docker-compose logs jumbo-stores-finder
+                docker compose logs jumbo-stores-finder
     exit 1
 fi
 

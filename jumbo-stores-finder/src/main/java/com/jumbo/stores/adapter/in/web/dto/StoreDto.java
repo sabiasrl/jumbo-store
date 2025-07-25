@@ -1,4 +1,4 @@
-package com.jumbo.stores.dto;
+package com.jumbo.stores.adapter.in.web.dto;
 
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;

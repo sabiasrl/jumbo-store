@@ -1,7 +1,7 @@
-package com.jumbo.stores.controller;
+package com.jumbo.stores.adapter.in.web;
 
-import com.jumbo.stores.exception.ApiExceptionHandler;
-import com.jumbo.stores.service.StoreService;
+import com.jumbo.stores.adapter.in.web.exception.ApiExceptionHandler;
+import com.jumbo.stores.application.port.in.FindClosestStoresUseCase;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -20,7 +20,7 @@ class StoreControllerValidationTest {
     private MockMvc mockMvc;
 
     @MockitoBean
-    private StoreService storeService;
+    private FindClosestStoresUseCase findClosestStoresUseCase;
 
     @Test
     void whenLatitudeOutOfRange_thenBadRequest() throws Exception {

@@ -15,7 +15,7 @@ For detailed information about the application, how to run it, and the available
 ### Quick Start with Docker Compose
 
 ```bash
-docker-compose up -d --build
+docker compose up -d --build
 ```
 
 ### Verify the Veghel closest shops
@@ -59,7 +59,7 @@ The pipeline validates the exact API response for the Veghel coordinates:
 - **Endpoint**: `GET /stores?latitude=51.6167&longitude=5.5486`
 - **Expected Response**: 5 stores with specific distances
 - **Validation**: Exact JSON match with distance calculations
+
 ### TODO list
 
 * add reactive support using webflux
-* integration with Azure DevOps (Pipeline, Boards)

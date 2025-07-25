@@ -1,8 +1,8 @@
-package com.jumbo.stores.service;
+package com.jumbo.stores.application.service;
 
-import com.jumbo.stores.dto.StoreDto;
-import com.jumbo.stores.model.Store;
-import com.jumbo.stores.repository.StoreRepository;
+import com.jumbo.stores.adapter.in.web.dto.StoreDto;
+import com.jumbo.stores.application.port.out.StoreRepository;
+import com.jumbo.stores.domain.model.Store;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -33,8 +33,8 @@ class StoreServiceTest {
         Store store4 = new Store(4L, "Store 4", 52.3, 5.3);
         Store store5 = new Store(5L, "Store 5", 52.4, 5.4);
 
-        // Mock PostGIS query
-        when(storeRepository.findClosestStoresPostgis(5.0, 52.0, 5))
+        // Mock repository call
+        when(storeRepository.findClosestStores(5.0, 52.0, 5))
             .thenReturn(Arrays.asList(store1, store2, store3, store4, store5));
 
         // Act
@@ -45,4 +45,4 @@ class StoreServiceTest {
         assertEquals("Store 1", closestStores.get(0).addressName());
         // The first store should be closest (distance 0) since it's at the same coordinates
     }
-}
+} 

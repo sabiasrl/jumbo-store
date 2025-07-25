@@ -1,38 +1,19 @@
-package com.jumbo.stores.model;
+package com.jumbo.stores.domain.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.locationtech.jts.geom.Point;
-import jakarta.persistence.Column;
-import jakarta.persistence.Table;
 import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.Coordinate;
 
-@Entity
-@Table(name = "store")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Store {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
-
-	@Column(name = "address_name")
-	@JsonProperty("addressName")
-	private String addressName;
-
-    // PostGIS geography column
-    @Column(columnDefinition = "geometry(Point,4326)")
+    private Long id;
+    private String addressName;
     private Point location;
 
     public Store(Long id, String addressName, double latitude, double longitude) {
@@ -51,4 +32,4 @@ public class Store {
     public double getLongitude() {
         return location != null ? location.getX() : 0;
     }
-}
+} 

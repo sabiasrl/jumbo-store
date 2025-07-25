@@ -1,7 +1,7 @@
-package com.jumbo.stores.controller;
+package com.jumbo.stores.adapter.in.web;
 
-import com.jumbo.stores.dto.StoreDto;
-import com.jumbo.stores.service.StoreService;
+import com.jumbo.stores.adapter.in.web.dto.StoreDto;
+import com.jumbo.stores.application.port.in.FindClosestStoresUseCase;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
@@ -20,19 +20,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 @Import(com.jumbo.stores.PostgresContainerConfig.class)
 public class StoreControllerTest {
 
-	@Autowired
-	private MockMvc mockMvc;
+    @Autowired
+    private MockMvc mockMvc;
 
-	@MockitoBean
-	private StoreService storeService;
+    @MockitoBean
+    private FindClosestStoresUseCase findClosestStoresUseCase;
 
-	@Test
-	public void getClosestStores_shouldReturnStores() throws Exception {
-		StoreDto storeDto = new StoreDto("Test Store", 52.3676, 4.9041, 0.0);
+    @Test
+    public void getClosestStores_shouldReturnStores() throws Exception {
+        StoreDto storeDto = new StoreDto("Test Store", 52.3676, 4.9041, 0.0);
 
-		given(storeService.findClosestStores(52.3676, 4.9041)).willReturn(Collections.singletonList(storeDto));
+        given(findClosestStoresUseCase.findClosestStores(52.3676, 4.9041)).willReturn(Collections.singletonList(storeDto));
 
-		mockMvc.perform(get("/stores?latitude=52.3676&longitude=4.9041")).andExpect(status().isOk())
-				.andExpect(jsonPath("$[0].addressName").value("Test Store"));
-	}
-}
+        mockMvc.perform(get("/stores?latitude=52.3676&longitude=4.9041")).andExpect(status().isOk())
+                .andExpect(jsonPath("$[0].addressName").value("Test Store"));
+    }
+} 
