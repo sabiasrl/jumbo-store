@@ -6,8 +6,6 @@ pool:
 
 variables:
   dockerComposeProjectName: 'jumbo-store-postgis'
-  mavenVersion: '3.9.6'
-  javaVersion: '21'
 
 stages:
 - stage: Build
@@ -16,36 +14,18 @@ stages:
   - job: BuildAndTest
     displayName: 'Build and Test Application'
     steps:
-    - task: UseJavaVersion@0
-      displayName: 'Use Java 21'
-      inputs:
-        versionSpec: '21'
-        jdkArchitectureOption: 'x64'
-
-    - task: Cache@2
-      displayName: 'Cache Maven packages'
-      inputs:
-        key: 'maven | "$(Agent.OS)" | **/pom.xml'
-        restoreKeys: |
-          maven | "$(Agent.OS)"
-          maven
-        path: $(MAVEN_CACHE_FOLDER)
+    - script: |
+        echo "Checking Java version..."
+        java -version
+        echo "Java is available on Ubuntu agent"
+      displayName: 'Verify Java Installation'
 
     - script: |
-        echo "Installing Maven..."
-        wget https://archive.apache.org/dist/maven/maven-3/$(mavenVersion)/binaries/apache-maven-$(mavenVersion)-bin.tar.gz
-        tar -xzf apache-maven-$(mavenVersion)-bin.tar.gz
-        sudo mv apache-maven-$(mavenVersion) /opt/maven
-        echo "M2_HOME=/opt/maven" >> $GITHUB_ENV
-        echo "/opt/maven/bin" >> $GITHUB_PATH
-      displayName: 'Install Maven'
-
-    - script: |
+        echo "Building and testing with Maven wrapper..."
         cd jumbo-stores-finder
-        mvn clean compile test
+        chmod +x ./mvnw
+        ./mvnw clean compile test
       displayName: 'Build and Unit Test'
-      env:
-        MAVEN_OPTS: '-Dmaven.repo.local=$(MAVEN_CACHE_FOLDER)'
 
     - script: |
         echo "Building Docker images..."
