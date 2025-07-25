@@ -20,7 +20,7 @@ stages:
       inputs:
         versionSpec: '21'
         jdkArchitectureOption: 'x64'
-        jdkSourceOption: 'AzureStorage'
+        jdkSourceOption: 'PreInstalled'
 
     - script: |
         echo "Verifying Java version..."
