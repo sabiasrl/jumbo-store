@@ -15,11 +15,6 @@ stages:
   - job: BuildAndTest
     displayName: 'Build and Test Application'
     steps:
-    - script: |
-        sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-        sudo chmod +x /usr/local/bin/docker-compose
-        docker-compose version
-      displayName: 'Install Docker Compose'
 
     - task: JavaToolInstaller@0
       displayName: 'Install Java 21 (Temurin)'
@@ -44,7 +39,7 @@ stages:
 
     - script: |
         echo "Building Docker images..."
-        docker-compose build
+        docker compose build
       displayName: 'Build Docker Images'
 
 - stage: IntegrationTest
@@ -56,13 +51,19 @@ stages:
     displayName: 'Integration Test'
     steps:
     - script: |
+        echo "Docker Compose is available as 'docker compose' in newer Docker versions"
+        docker compose version
+        echo "Docker Compose verification completed"
+      displayName: 'Verify Docker Compose'
+
+    - script: |
         echo "Starting PostGIS database..."
-        docker-compose up -d postgis
+        docker compose up -d postgis
         echo "Waiting for PostGIS to be ready..."
         
         # Wait for PostGIS to be healthy
         for i in {1..30}; do
-          if docker-compose exec -T postgis pg_isready -U jumbo -d jumbo; then
+          if docker compose exec -T postgis pg_isready -U jumbo -d jumbo; then
             echo "PostGIS is ready!"
             break
           fi
@@ -71,16 +72,16 @@ stages:
         done
         
         # Final check
-        if ! docker-compose exec -T postgis pg_isready -U jumbo -d jumbo; then
+        if ! docker compose exec -T postgis pg_isready -U jumbo -d jumbo; then
           echo "PostGIS failed to start properly"
-          docker-compose logs postgis
+          docker compose logs postgis
           exit 1
         fi
       displayName: 'Start and Verify PostGIS Database'
 
     - script: |
         echo "Starting application jumbo-store-finder ..."
-        docker-compose up -d jumbo-stores-finder
+        docker compose up -d jumbo-stores-finder
         echo "Waiting for application to start..."
         
         # Wait for application to be ready
@@ -96,7 +97,7 @@ stages:
         # Final check
         if ! curl -s http://localhost:8080/actuator/health | grep -q "UP"; then
           echo "Application failed to start properly"
-          docker-compose logs jumbo-stores-finder
+          docker compose logs jumbo-stores-finder
           exit 1
         fi
       displayName: 'Start and Verify Application'
@@ -145,7 +146,7 @@ stages:
 
     - script: |
         echo "Cleaning up containers..."
-        docker-compose down -v
+        docker compose down -v
         docker system prune -f
       displayName: 'Cleanup'
       condition: always()
