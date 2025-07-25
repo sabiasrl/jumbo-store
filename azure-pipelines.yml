@@ -102,14 +102,6 @@ stages:
         fi
       displayName: 'Start and Verify Application'
 
-- stage: E2EValidation
-  displayName: 'E2E Validation'
-  dependsOn: IntegrationTest
-  condition: succeeded()
-  jobs:
-  - job: E2ETest
-    displayName: 'E2E API Validation'
-    steps:
     - script: |
         echo "Running E2E validation test..."
         echo "Testing endpoint: http://localhost:8080/stores?latitude=51.6167&longitude=5.5486"
