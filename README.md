@@ -1,6 +1,6 @@
 # Jumbo Stores Finder
 
-[![Build Status](https://dev.azure.com/sabiasrl/Jumbo%20-%20technical%20annex/_apis/build/status%2Fsabiasrl.jumbo-store?branchName=main)](https://dev.azure.com/sabiasrl/Jumbo%20-%20technical%20annex/_build/latest?definitionId=3&branchName=main)
+[![Build Status](https://dev.azure.com/sabiasrl/jumbo-store-finder/_apis/build/status%2Fsabiasrl.jumbo-store?branchName=main)](https://dev.azure.com/sabiasrl/jumbo-store-finder/_build/latest?definitionId=3&branchName=main)
 
 ## Assignment
 
