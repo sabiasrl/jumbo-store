@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.20.xsd">
+
+    <changeSet id="004" author="jumbo">
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo ''s Gravendeel Gravendeel Centrum', ST_GeomFromText('POINT(4.615551 51.778461)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo ''s-Heerenberg Stadsplein', ST_GeomFromText('POINT(6.245829 51.874272)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Aalsmeer Ophelialaan', ST_GeomFromText('POINT(4.762433 52.264417)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Aalst Paul en Marjon Houben', ST_GeomFromText('POINT(5.469597 51.399843)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Aalten Leussink', ST_GeomFromText('POINT(6.576066 51.923993)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Aardenburg Ingels', ST_GeomFromText('POINT(3.444601 51.275006)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Alkmaar Duijvelshoff', ST_GeomFromText('POINT(4.749492 52.645601)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Alkmaar J. Naberstraat', ST_GeomFromText('POINT(4.766146 52.665822)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Alkmaar Paardenmarkt', ST_GeomFromText('POINT(4.745031 52.63374)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Alkmaar Winkelwaard', ST_GeomFromText('POINT(4.759373 52.645642)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Almelo Bornerbroeksestraat', ST_GeomFromText('POINT(6.660543 52.349813)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Almere Waterwijk Geinplein', ST_GeomFromText('POINT(5.22411 52.384906)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Almere-Buiten Detroitpad', ST_GeomFromText('POINT(5.274883 52.395474)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Almere-Haven Jaagmeent', ST_GeomFromText('POINT(5.231883 52.336693)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Alphen aan den Rijn Ten Brink Food', ST_GeomFromText('POINT(4.661277 52.150632)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amerongen Koenestraat', ST_GeomFromText('POINT(5.461122 52.002437)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amersfoort Den Blanken Emiclaer', ST_GeomFromText('POINT(5.398059 52.18599)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amersfoort Den Blanken Nieuwland', ST_GeomFromText('POINT(5.37659 52.199279)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amersfoort Leusderweg.', ST_GeomFromText('POINT(5.381369 52.143866)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amersfoort Neptunusplein', ST_GeomFromText('POINT(5.399515 52.162897)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amersfoort PUP Medewerkers FrieslandCampina', ST_GeomFromText('POINT(5.377845 52.151843)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amersfoort Pieter Stastokerf', ST_GeomFromText('POINT(5.389766 52.173049)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amersfoort Vathorst', ST_GeomFromText('POINT(5.430602 52.193992)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amersfoort Wiekslag', ST_GeomFromText('POINT(5.409 52.16654)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amstelveen Groenhof', ST_GeomFromText('POINT(4.869239 52.289047)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amstelveen Veenbrink', ST_GeomFromText('POINT(4.86268 52.314032)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amsterdam Baarsjesweg', ST_GeomFromText('POINT(4.855152 52.358817)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amsterdam Buikslotermeerplein', ST_GeomFromText('POINT(4.935776 52.399066)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amsterdam Buitenveldertselaan', ST_GeomFromText('POINT(4.868105 52.32455)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amsterdam De Aker', ST_GeomFromText('POINT(4.786455 52.349779)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amsterdam Foodmarkt Amsterdam', ST_GeomFromText('POINT(4.919767 52.383263)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amsterdam H. Jacobszstraat', ST_GeomFromText('POINT(4.860463 52.351722)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amsterdam Oostelijke Handelskade', ST_GeomFromText('POINT(4.935351 52.374447)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amsterdam Plein ''40-''45', ST_GeomFromText('POINT(4.821771 52.380655)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amsterdam Reigersbos', ST_GeomFromText('POINT(4.976122 52.294533)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amsterdam Spaarndammerstraat', ST_GeomFromText('POINT(4.879655 52.389402)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amsterdam Stadhouderskade', ST_GeomFromText('POINT(4.895801 52.357579)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amsterdam Velu', ST_GeomFromText('POINT(4.88315 52.326242)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amsterdam Westerstraat', ST_GeomFromText('POINT(4.883832 52.37867)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Amsterdam Wisseloord', ST_GeomFromText('POINT(4.987549 52.296945)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Anna Paulowna Molengang', ST_GeomFromText('POINT(4.83292 52.86143)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Apeldoorn Jumbo Wiegmans Apeldoorn', ST_GeomFromText('POINT(5.992215 52.22117)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Apeldoorn Van de Bunt', ST_GeomFromText('POINT(5.966148 52.190328)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Appingedam Harddraversplein', ST_GeomFromText('POINT(6.864727 53.315822)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Arnhem Amsterdamseweg', ST_GeomFromText('POINT(5.893909 51.988239)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Arnhem De Lely', ST_GeomFromText('POINT(5.933527 51.973083)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Arnhem Elderveldplein', ST_GeomFromText('POINT(5.859301 51.961061)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Arnhem Oostburgwal', ST_GeomFromText('POINT(5.867014 51.94852)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Arnhem Rosendaalseweg', ST_GeomFromText('POINT(5.938591 51.997751)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Assen Citadel', ST_GeomFromText('POINT(6.566601 52.996836)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Assen Kleuvenstee', ST_GeomFromText('POINT(6.585363 53.017556)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Assen Nijlandstraat', ST_GeomFromText('POINT(6.569965 52.998792)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Assen Nobellaan', ST_GeomFromText('POINT(6.548531 53.000548)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Baarle-Nassau Bresser St. Annaplein', ST_GeomFromText('POINT(4.93209 51.444124)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Baarn Den Blanken', ST_GeomFromText('POINT(5.285692 52.211878)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Bakel Auerschootseweg', ST_GeomFromText('POINT(5.742722 51.499358)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Barendrecht Carnisselande', ST_GeomFromText('POINT(4.498515 51.847071)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Barendrecht Onderlangs', ST_GeomFromText('POINT(4.541214 51.85389)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Barneveld Amersfoortsestraat', ST_GeomFromText('POINT(5.580403 52.136588)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Barneveld Nieuwe Markt', ST_GeomFromText('POINT(5.583035 52.141901)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Bedum Noordwolderweg', ST_GeomFromText('POINT(6.594219 53.299966)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Beilen Mulder Ventweg', ST_GeomFromText('POINT(6.512763 52.858527)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Belfeld Muldersplein', ST_GeomFromText('POINT(6.113321 51.312098)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Bemmel Kloosterplaats', ST_GeomFromText('POINT(5.899557 51.891547)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Beneden-Leeuwen Nijverheidsstraat', ST_GeomFromText('POINT(5.522079 51.880765)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Bergeijk Elsenhof', ST_GeomFromText('POINT(5.356824 51.321653)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Bergen op Zoom De Parade', ST_GeomFromText('POINT(4.29069 51.493401)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Bergen op Zoom Het Kompas', ST_GeomFromText('POINT(4.281549 51.479833)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Berghem Burg. van Erpstraat', ST_GeomFromText('POINT(5.56752 51.774247)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Bergschenhoek Dorpsstraat', ST_GeomFromText('POINT(4.50043 51.989246)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Berkel Enschot Eikenbosch', ST_GeomFromText('POINT(5.139864 51.58465)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Berkel en Rodenrijs Esdoornlaan', ST_GeomFromText('POINT(4.489602 52.002845)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Berkel en Rodenrijs Westpolderstraat', ST_GeomFromText('POINT(4.454902 51.990683)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Berlicum Mercuriusplein', ST_GeomFromText('POINT(5.400282 51.6789)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Best Eindhovenseweg Zuid', ST_GeomFromText('POINT(5.414346 51.503687)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Beuningen Kalkman', ST_GeomFromText('POINT(5.770297 51.859852)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Bladel Gindrapassage', ST_GeomFromText('POINT(5.218227 51.366486)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Bleiswijk Dorpsstraat', ST_GeomFromText('POINT(4.530442 52.010304)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Blerick Jumbo de Wieën', ST_GeomFromText('POINT(6.149932 51.368237)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Bodegraven Langerak Broekvelden', ST_GeomFromText('POINT(4.751117 52.076824)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Bodegraven Langerak Raadhuisplein', ST_GeomFromText('POINT(4.74644 52.086641)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Bolsward Snekerstraat', ST_GeomFromText('POINT(5.527809 53.061388)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Born Kapelweg', ST_GeomFromText('POINT(5.809002 51.032432)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Boxmeer Burg. Verkuijlstraat', ST_GeomFromText('POINT(5.94989 51.645361)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Boxtel Oosterhof', ST_GeomFromText('POINT(5.334548 51.587163)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Breda Baliendijk', ST_GeomFromText('POINT(4.793045 51.598767)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Breda Belcrumweg', ST_GeomFromText('POINT(4.770219 51.596607)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Breda Cypresstraat', ST_GeomFromText('POINT(4.753484 51.58751)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Breda De Burcht', ST_GeomFromText('POINT(4.806992 51.572716)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Breda De Donk', ST_GeomFromText('POINT(4.746425 51.607354)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Breda Dr. Struyckenplein', ST_GeomFromText('POINT(4.755936 51.576775)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Breda Foodmarkt', ST_GeomFromText('POINT(4.748829 51.593948)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Breda WC Princenhage', ST_GeomFromText('POINT(4.739012 51.578387)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Breskens Burg. van Zuyenstraat', ST_GeomFromText('POINT(3.548912 51.395932)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Breukelen Peter Bogers', ST_GeomFromText('POINT(4.999103 52.180958)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Brielle Thoelaverweg', ST_GeomFromText('POINT(4.169814 51.899563)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Brummen Ambachtstraat', ST_GeomFromText('POINT(6.154375 52.088166)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Budel Jumbo Hesselberth', ST_GeomFromText('POINT(5.576135 51.273724)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Bunschoten-Spakenburg de Ziel', ST_GeomFromText('POINT(5.37909 52.251971)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Burgum Markt', ST_GeomFromText('POINT(5.993016 53.19055)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Cadier en Keer Rijksweg', ST_GeomFromText('POINT(5.760103 50.829337)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Capelle aan den IJssel Koperwiek', ST_GeomFromText('POINT(4.59021 51.92917)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Capelle aan den IJssel Wingerd', ST_GeomFromText('POINT(4.567031 51.935262)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Coevorden Ing. A. Vonkweg', ST_GeomFromText('POINT(6.735401 52.670375)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Coevorden Rene Kromkamp', ST_GeomFromText('POINT(6.733706 52.662229)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Colmschate Jumbo Hans Kok', ST_GeomFromText('POINT(6.217211 52.247877)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Cuijk Wijk Heeswijkse Kampen', ST_GeomFromText('POINT(5.859177 51.741554)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Dalfsen Kamphuis', ST_GeomFromText('POINT(6.260976 52.505816)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo De Koog (Texel) De Koog', ST_GeomFromText('POINT(4.764259 53.098468)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo De Lier Oranjeplein', ST_GeomFromText('POINT(4.249613 51.97373)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo De Meern Mereveldplein', ST_GeomFromText('POINT(5.038105 52.079717)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Dedemsvaart Jumbo Joosten Dedemsvaart', ST_GeomFromText('POINT(6.45536 52.601379)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Delft Bastiaansplein', ST_GeomFromText('POINT(4.36472 52.009115)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Delft Buitenhof', ST_GeomFromText('POINT(4.345893 51.987493)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Delft Tanthof', ST_GeomFromText('POINT(4.360654 51.985163)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Delft Troelstralaan', ST_GeomFromText('POINT(4.3537 51.99815)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Delfzijl Jachtlaan', ST_GeomFromText('POINT(6.91419 53.32693)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Delfzijl de Wending', ST_GeomFromText('POINT(6.911093 53.335617)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Den Bosch De Rompertpassage', ST_GeomFromText('POINT(5.314117 51.712313)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Den Bosch Helftheuvelpassage', ST_GeomFromText('POINT(5.266967 51.694717)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Den Bosch Lokerenpassage', ST_GeomFromText('POINT(5.30717 51.72656)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Den Bosch Pettelaarseweg', ST_GeomFromText('POINT(5.317005 51.679884)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Den Bosch Rivierenplein', ST_GeomFromText('POINT(5.329953 51.690419)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Den Burg (Texel) Den Burg', ST_GeomFromText('POINT(4.79511 53.05526)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Den Dungen Maaskantje', ST_GeomFromText('POINT(5.369435 51.660613)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Den Haag Alphons Diepenbrockhof', ST_GeomFromText('POINT(4.231047 52.05962)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Den Haag Anemoonstraat', ST_GeomFromText('POINT(4.259622 52.076272)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Den Haag De Stede', ST_GeomFromText('POINT(4.259757 52.043748)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Den Haag George en Dajenne Overgaag', ST_GeomFromText('POINT(4.369199 52.041106)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Den Haag Laakweg', ST_GeomFromText('POINT(4.329947 52.067176)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Den Haag Leyweg', ST_GeomFromText('POINT(4.275331 52.049555)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Den Haag Mieremet', ST_GeomFromText('POINT(4.269073 52.062237)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Den Ham Jumbo Rudy Veldkamp', ST_GeomFromText('POINT(6.494559 52.464503)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Deurne De Koolhof', ST_GeomFromText('POINT(5.804116 51.456157)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Deurne Stationsstraat', ST_GeomFromText('POINT(5.792282 51.461763)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Deventer De Boreel', ST_GeomFromText('POINT(6.165298 52.253411)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Deventer Eddie Dijkman', ST_GeomFromText('POINT(6.14273 52.2674)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Diemen Gruttoplein', ST_GeomFromText('POINT(4.977776 52.349806)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Diemen Kruidenhof', ST_GeomFromText('POINT(4.957084 52.333628)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Dinxperlo Heelweg', ST_GeomFromText('POINT(6.495248 51.860851)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Doetinchem J.F. Kennedylaan', ST_GeomFromText('POINT(6.296354 51.969476)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Dokkum Hantumerweg', ST_GeomFromText('POINT(5.998279 53.329377)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Dongen Mgr. Schaepmanlaan', ST_GeomFromText('POINT(4.942178 51.627679)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Doorn Plein 1923', ST_GeomFromText('POINT(5.346111 52.03446)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Doorwerth De Weerd', ST_GeomFromText('POINT(5.794896 51.979279)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Dordrecht Merwedestraat', ST_GeomFromText('POINT(4.696502 51.819026)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Dordrecht P.A. de Kokplein', ST_GeomFromText('POINT(4.6765 51.784875)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Dordrecht Slangenburg', ST_GeomFromText('POINT(4.674954 51.774373)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Drachten Eems', ST_GeomFromText('POINT(6.074306 53.098882)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Drachten Stationsweg', ST_GeomFromText('POINT(6.096756 53.117626)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Dreumel Ekershof', ST_GeomFromText('POINT(5.431719 51.848035)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Driebergen Verberne', ST_GeomFromText('POINT(5.273536 52.049957)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Dronten De Binnenloop', ST_GeomFromText('POINT(5.716434 52.525239)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Dronten De Wardhof', ST_GeomFromText('POINT(5.721375 52.513091)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Drunen Grotestraat', ST_GeomFromText('POINT(5.135548 51.686841)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Druten Marktpassage', ST_GeomFromText('POINT(5.610155 51.890251)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Duiven Gradussen Eilandplein', ST_GeomFromText('POINT(6.006349 51.941391)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Duiven Gradussen Pastoriestraat', ST_GeomFromText('POINT(6.022794 51.950217)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Ede Bellestein', ST_GeomFromText('POINT(5.64384 52.042685)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Eelde Jumbo Pepping Eelde', ST_GeomFromText('POINT(6.564739 53.133709)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Eerbeek Loenenseweg', ST_GeomFromText('POINT(6.061368 52.105392)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Eersel Jan Daris', ST_GeomFromText('POINT(5.316678 51.361505)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Egmond aan Zee Voorstraat', ST_GeomFromText('POINT(4.626381 52.618704)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Eibergen Brink', ST_GeomFromText('POINT(6.648551 52.101557)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Eindhoven Belgiëplein', ST_GeomFromText('POINT(5.478941 51.479727)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Eindhoven Biarritzplein', ST_GeomFromText('POINT(5.44934 51.482902)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Eindhoven Boschdijk', ST_GeomFromText('POINT(5.464946 51.451005)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Eindhoven Boutenslaan', ST_GeomFromText('POINT(5.465047 51.427559)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Eindhoven Geldropseweg', ST_GeomFromText('POINT(5.490035 51.433142)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Eindhoven Gerretsonplein', ST_GeomFromText('POINT(5.463269 51.470731)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Eindhoven Kastelenplein', ST_GeomFromText('POINT(5.440903 51.419103)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Eindhoven Meerwater', ST_GeomFromText('POINT(5.408455 51.442225)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Eindhoven Nederlandplein', ST_GeomFromText('POINT(5.46338 51.479272)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Eindhoven Pagelaan', ST_GeomFromText('POINT(5.517419 51.452017)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Eindhoven WC Woensel', ST_GeomFromText('POINT(5.477477 51.46822)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Elburg Zwolscheweg', ST_GeomFromText('POINT(5.837842 52.447553)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Elst Europaplein', ST_GeomFromText('POINT(5.842928 51.917456)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Elst Macleane Westeraam', ST_GeomFromText('POINT(5.86126 51.922134)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Emmeloord Lange Nering', ST_GeomFromText('POINT(5.758072 52.711821)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Emmeloord Odink', ST_GeomFromText('POINT(5.739695 52.711511)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Emmen Houtweg', ST_GeomFromText('POINT(6.93904 52.792601)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Emmen Statenweg', ST_GeomFromText('POINT(6.923236 52.779773)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Emmen Valkenveld', ST_GeomFromText('POINT(6.889522 52.750653)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Emmen Weerdingerstraat', ST_GeomFromText('POINT(6.898426 52.791939)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Emmen Wilhelminastraat', ST_GeomFromText('POINT(6.896808 52.778127)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Enschede Brouwerijplein', ST_GeomFromText('POINT(6.891671 52.231521)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Enschede Burgemeester van Veenlaan', ST_GeomFromText('POINT(6.878991 52.206207)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Enschede Irene Promenade', ST_GeomFromText('POINT(6.898243 52.22135)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Enschede Wesselernering', ST_GeomFromText('POINT(6.880051 52.191539)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Epe Jumbo van Andel', ST_GeomFromText('POINT(5.984636 52.346144)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Etten-Leur Geerkade', ST_GeomFromText('POINT(4.654339 51.586719)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Etten-Leur Kerkwerve', ST_GeomFromText('POINT(4.642907 51.565013)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Eygelshoven Portbeemden', ST_GeomFromText('POINT(6.060411 50.894142)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Fijnaart Gert Driesen', ST_GeomFromText('POINT(4.474125 51.631861)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Gameren Jumbo Bommelerwaard', ST_GeomFromText('POINT(5.20456 51.797435)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Geffen Jumbo van der Sangen', ST_GeomFromText('POINT(5.462339 51.741324)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Geldrop Verhagen Coevering', ST_GeomFromText('POINT(5.573509 51.417019)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Geleen Pastoor Vonckenstraat', ST_GeomFromText('POINT(5.840834 50.97111)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Geleen Penders', ST_GeomFromText('POINT(5.814687 50.984474)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Gemert Past.Poellplein', ST_GeomFromText('POINT(5.686091 51.561268)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Gennep Europaplein', ST_GeomFromText('POINT(5.97016 51.698053)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Gieten Jumbo Abbas', ST_GeomFromText('POINT(6.764721 53.002018)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Gilze Hapers Gilze', ST_GeomFromText('POINT(4.941983 51.548479)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Glanerbrug Lochan', ST_GeomFromText('POINT(6.970179 52.212865)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Goes Marconistraat', ST_GeomFromText('POINT(3.885063 51.499215)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Goor Leussink', ST_GeomFromText('POINT(6.578758 52.23423)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Gorinchem Piazza Center', ST_GeomFromText('POINT(4.96115 51.8379)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Gorredijk Badweg', ST_GeomFromText('POINT(6.056909 53.003553)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Gorssel Brinkman', ST_GeomFromText('POINT(6.202666 52.20217)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Gouda Bloemendaal', ST_GeomFromText('POINT(4.70337 52.032288)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Gouda Sportlaan', ST_GeomFromText('POINT(4.73003 52.010371)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Grave Essinklaan', ST_GeomFromText('POINT(5.746917 51.75166)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Grijpskerk Schoutstraat', ST_GeomFromText('POINT(6.307238 53.26326)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Groesbeek De Meent', ST_GeomFromText('POINT(5.933827 51.772985)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Groningen Beren', ST_GeomFromText('POINT(6.562667 53.226915)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Groningen Euroborg', ST_GeomFromText('POINT(6.591977 53.207145)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Groningen Foodmarkt City', ST_GeomFromText('POINT(6.567 53.219357)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Groningen Oosterpark', ST_GeomFromText('POINT(6.582396 53.222301)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Groningen Oosterstraat', ST_GeomFromText('POINT(6.570859 53.216437)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Groningen Overwinningsplein', ST_GeomFromText('POINT(6.561594 53.198044)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Groningen Reitdiephaven', ST_GeomFromText('POINT(6.522026 53.236004)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Groningen Wilhelminakade', ST_GeomFromText('POINT(6.547277 53.219487)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Grou Stationsweg', ST_GeomFromText('POINT(5.830876 53.094319)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Haaksbergen Leussink', ST_GeomFromText('POINT(6.737974 52.157674)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Haarlem Engelenburg', ST_GeomFromText('POINT(4.653853 52.351871)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hank Kerkstraat', ST_GeomFromText('POINT(4.899847 51.73602)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hapert Markt', ST_GeomFromText('POINT(5.251834 51.369247)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hardenberg Adm Helfrichstraat', ST_GeomFromText('POINT(6.620719 52.574053)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Harderwijk Drielanden', ST_GeomFromText('POINT(5.601576 52.324772)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Harderwijk Nassaulaan', ST_GeomFromText('POINT(5.633571 52.335639)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Harderwijk Stadsweiden', ST_GeomFromText('POINT(5.608147 52.336666)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Haren Anjerplein', ST_GeomFromText('POINT(6.623632 53.170992)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Haren Kroonkampweg', ST_GeomFromText('POINT(6.603423 53.171885)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Harlingen Spoorstraat', ST_GeomFromText('POINT(5.420315 53.170788)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hazerswoude Rijndijk Da Costasingel', ST_GeomFromText('POINT(4.588355 52.127781)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hedel Kasteellaan', ST_GeomFromText('POINT(5.260698 51.744609)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Heel Roel Heerschap', ST_GeomFromText('POINT(5.901233 51.18056)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Heemskerk Haydnplein', ST_GeomFromText('POINT(4.676738 52.512825)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Heerde Stationsstraat', ST_GeomFromText('POINT(6.038636 52.390008)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Heerenveen De Greiden', ST_GeomFromText('POINT(5.914327 52.953238)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Heerenveen Molenplein', ST_GeomFromText('POINT(5.925564 52.957082)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Heerlen Maanplein', ST_GeomFromText('POINT(5.975051 50.891763)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Heesch Schoonstraat', ST_GeomFromText('POINT(5.526183 51.734366)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Heeswijk Dinther St. Servatiusstraat', ST_GeomFromText('POINT(5.474725 51.648961)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hellevoetsluis De Struytse Hoeck', ST_GeomFromText('POINT(4.144655 51.834368)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hellevoetsluis Jachthoorn', ST_GeomFromText('POINT(4.15271 51.842447)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Helmond Azalealaan', ST_GeomFromText('POINT(5.675169 51.476521)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Helmond Brandevoort', ST_GeomFromText('POINT(5.609562 51.460648)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Helmond Brouwhorst', ST_GeomFromText('POINT(5.702682 51.469665)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Helmond Hoofdstraat', ST_GeomFromText('POINT(5.634897 51.467106)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hendrik Ido Ambacht de Schoof', ST_GeomFromText('POINT(4.6454 51.849812)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hengelo Jumbo Klieverik', ST_GeomFromText('POINT(6.789338 52.256202)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hengelo Leferink', ST_GeomFromText('POINT(6.827428 52.28459)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hengelo Leussink', ST_GeomFromText('POINT(6.822234 52.26241)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Heteren Teun van Blijderveen', ST_GeomFromText('POINT(5.757288 51.959135)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Heythuysen Heerschap St. Antoniusstraat', ST_GeomFromText('POINT(5.899811 51.250272)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hillegom Van Beest', ST_GeomFromText('POINT(4.58305 52.29115)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hilvarenbeek Hilverstraat', ST_GeomFromText('POINT(5.138948 51.483345)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hilversum Florijn', ST_GeomFromText('POINT(5.176066 52.237964)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hilversum Larenseweg', ST_GeomFromText('POINT(5.18846 52.23286)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hoevelaken Westerdorpsstraat', ST_GeomFromText('POINT(5.455213 52.175137)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hoofddorp Skagerrak', ST_GeomFromText('POINT(4.670973 52.309034)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hoogerheide Paul Lucius', ST_GeomFromText('POINT(4.323448 51.424797)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hoogeveen Tamboerpassage', ST_GeomFromText('POINT(6.479598 52.727123)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hoogezand Hoofdstraat', ST_GeomFromText('POINT(6.772923 53.163481)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hoogezand Meint Veningastraat', ST_GeomFromText('POINT(6.743613 53.162784)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hoogezand Pleiaden', ST_GeomFromText('POINT(6.742062 53.149165)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hoogvliet De Zalmplaat', ST_GeomFromText('POINT(4.368372 51.850736)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Houten Odijkseweg', ST_GeomFromText('POINT(5.180756 52.032318)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Houten Spoorhaag', ST_GeomFromText('POINT(5.168394 52.035284)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Huissen Brink', ST_GeomFromText('POINT(5.926741 51.945259)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Huizen De Kostmand', ST_GeomFromText('POINT(5.254419 52.291946)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Hulst Stationsplein', ST_GeomFromText('POINT(4.044236 51.277046)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo IJsselstein A. Langerak Achterveld', ST_GeomFromText('POINT(5.027952 52.022563)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo IJsselstein Langerak Clinckhoeff', ST_GeomFromText('POINT(5.047225 52.027293)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo IJsselstein Langerak Televisiebaan', ST_GeomFromText('POINT(5.053706 52.025147)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Joure G. Knolweg', ST_GeomFromText('POINT(5.808165 52.961306)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Kaatsheuvel De Hoofdpoort', ST_GeomFromText('POINT(5.035866 51.661627)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Kampen Hanzeplein', ST_GeomFromText('POINT(5.900337 52.559315)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Kampen Penningkruid', ST_GeomFromText('POINT(5.900489 52.552999)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Kerkrade Huirne-Hetterscheid', ST_GeomFromText('POINT(6.069627 50.86368)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Kerkrade Kerkrade West', ST_GeomFromText('POINT(6.026938 50.85734)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Klazienaveen Langestraat', ST_GeomFromText('POINT(6.991792 52.724771)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Kollum Mr. Andreaestraat', ST_GeomFromText('POINT(6.153888 53.282416)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Kortenhoef Curtevenneweg', ST_GeomFromText('POINT(5.11451 52.24018)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Krabbendijke Slingerland', ST_GeomFromText('POINT(4.111352 51.43088)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Krimpen aan den IJssel De Korf', ST_GeomFromText('POINT(4.610666 51.921959)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Krimpen aan den IJssel De Olm', ST_GeomFromText('POINT(4.617253 51.914615)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Lage Zwaluwe Pastoor van Hooijdonklaan', ST_GeomFromText('POINT(4.705207 51.706275)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Landgraaf Hoofdstraat', ST_GeomFromText('POINT(6.015092 50.891752)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Landgraaf Op de Kamp', ST_GeomFromText('POINT(6.024173 50.906079)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Landsmeer Johan Plemp', ST_GeomFromText('POINT(4.914647 52.428866)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Laren Plein 1945', ST_GeomFromText('POINT(5.229742 52.25475)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Leek De Schans', ST_GeomFromText('POINT(6.391243 53.161322)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Leek Industriepark', ST_GeomFromText('POINT(6.37473 53.16921)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Leek Waezenburglaan', ST_GeomFromText('POINT(6.375167 53.162886)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Leens De Marren', ST_GeomFromText('POINT(6.375019 53.361064)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Leeuwarden Eksterstraat', ST_GeomFromText('POINT(5.782159 53.20666)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Leeuwarden Hoeksterpad', ST_GeomFromText('POINT(5.801714 53.205761)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Leeuwarden Johannes Kolfplein', ST_GeomFromText('POINT(5.813789 53.215068)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Leeuwarden Lieuwenburg', ST_GeomFromText('POINT(5.840113 53.211136)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Leeuwarden Snekertrekweg', ST_GeomFromText('POINT(5.784194 53.196777)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Leeuwarden Van Loonstraat', ST_GeomFromText('POINT(5.783758 53.194008)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Leeuwarden Wisman Cambuurplein', ST_GeomFromText('POINT(5.81341 53.205165)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Leeuwarden Zuiderburen', ST_GeomFromText('POINT(5.824342 53.179247)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Leiden Diamantplein', ST_GeomFromText('POINT(4.465321 52.156762)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Leiden Stationsweg', ST_GeomFromText('POINT(4.483228 52.165356)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Leidschendam Weigelia', ST_GeomFromText('POINT(4.382588 52.088379)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Lelystad De Waag', ST_GeomFromText('POINT(5.47327 52.51007)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Lelystad Jumbo Dusselaar', ST_GeomFromText('POINT(5.447317 52.510327)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Lelystad Van Leijen', ST_GeomFromText('POINT(5.490848 52.493662)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Lemmer Stationsweg', ST_GeomFromText('POINT(5.70864 52.843464)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Leusden Biezenkamp', ST_GeomFromText('POINT(5.427718 52.137368)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Leusden De Hamershof', ST_GeomFromText('POINT(5.427728 52.128752)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Lichtenvoorde Bennink', ST_GeomFromText('POINT(6.561418 51.985796)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Lienden Verbrughweg', ST_GeomFromText('POINT(5.518607 51.944427)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Lieshout Dorpsstraat', ST_GeomFromText('POINT(5.593917 51.521123)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Lisse De Poelmarkt', ST_GeomFromText('POINT(4.561452 52.249097)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Lochem Prins Bernhardweg', ST_GeomFromText('POINT(6.418972 52.162642)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Loenen aan de Vecht Koster', ST_GeomFromText('POINT(5.020968 52.210053)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Loosdrecht Nootweg', ST_GeomFromText('POINT(5.138788 52.200054)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Losser De Brink', ST_GeomFromText('POINT(7.006359 52.261236)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Maarheeze Frank Simonis Maarheeze', ST_GeomFromText('POINT(5.61365 51.311312)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Maartensdijk Jelle Farenhorst', ST_GeomFromText('POINT(5.176653 52.15564)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Maasbree Heierveldlaan', ST_GeomFromText('POINT(6.045675 51.358343)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Maassluis Lange boonestraat', ST_GeomFromText('POINT(4.255636 51.923658)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Maastricht Brusselsepoort', ST_GeomFromText('POINT(5.666505 50.85022)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Maastricht Franciscus Romanusweg', ST_GeomFromText('POINT(5.699375 50.857349)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Maastricht Laag Mosae Forum', ST_GeomFromText('POINT(5.693437 50.852012)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Maastricht Malbergsingel', ST_GeomFromText('POINT(5.654949 50.863643)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Maastricht Roserije', ST_GeomFromText('POINT(5.726087 50.827243)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Maastricht Voltastraat', ST_GeomFromText('POINT(5.71389 50.852285)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Made Oswald en Sandy Hesselberth', ST_GeomFromText('POINT(4.795532 51.682775)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Makkum Lieuwkemastraat', ST_GeomFromText('POINT(5.402998 53.058663)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Mariahout Mariastraat', ST_GeomFromText('POINT(5.570628 51.541279)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Marknesse Breestraat', ST_GeomFromText('POINT(5.862276 52.708604)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Maurik Raadhuisstraat', ST_GeomFromText('POINT(5.420041 51.962553)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Meerssen Beekstraat', ST_GeomFromText('POINT(5.755746 50.884918)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Meerssen Kuilenstraat', ST_GeomFromText('POINT(5.738504 50.875352)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Meijel Kerkstraat', ST_GeomFromText('POINT(5.890803 51.344738)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Meppel Het Vledder', ST_GeomFromText('POINT(6.195687 52.697298)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Meppel WC Koedijkslanden', ST_GeomFromText('POINT(6.181088 52.686046)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Middelbeers ''t Ven', ST_GeomFromText('POINT(5.250701 51.468029)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Middelburg Sir W. Churchilllaan', ST_GeomFromText('POINT(3.612508 51.509157)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Moergestel Rootven', ST_GeomFromText('POINT(5.179625 51.54523)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Molenaarsgraaf Jumbo Meijerink', ST_GeomFromText('POINT(4.819762 51.875867)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Monster Molenstraat', ST_GeomFromText('POINT(4.172125 52.022865)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Naaldwijk Emmastraat', ST_GeomFromText('POINT(4.20596 51.99466)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nederweert Kerkstraat', ST_GeomFromText('POINT(5.750272 51.28316)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nes (Ameland) Hoge Eggenweg', ST_GeomFromText('POINT(5.774876 53.442422)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nieuw Bergen Rembrandtplein', ST_GeomFromText('POINT(6.054809 51.603947)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nieuw Vennep Van Vliet', ST_GeomFromText('POINT(4.632534 52.264493)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nieuwe Niedorp Trambaan', ST_GeomFromText('POINT(4.904489 52.746498)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nieuwegein Jumbo Nieuwegein de Gaarde', ST_GeomFromText('POINT(5.071883 52.036205)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nieuwegein Laag Raadstede', ST_GeomFromText('POINT(5.085092 52.02836)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nieuwerkerk Jumbo Schot', ST_GeomFromText('POINT(3.997746 51.648249)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nieuwerkerk ad IJssel Reigerhof', ST_GeomFromText('POINT(4.617804 51.968149)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nieuwkoop Kennedyplein', ST_GeomFromText('POINT(4.773509 52.148031)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nijkerk Molenplein', ST_GeomFromText('POINT(5.489498 52.223904)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nijmegen Fenikshof', ST_GeomFromText('POINT(5.842963 51.845745)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nijmegen Leuvensbroek', ST_GeomFromText('POINT(5.780225 51.832242)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nijmegen Malvert', ST_GeomFromText('POINT(5.807995 51.808912)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nijmegen Sint Jacobslaan', ST_GeomFromText('POINT(5.846686 51.812206)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nijverdal Grotestraat', ST_GeomFromText('POINT(6.456592 52.365477)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nijverdal Kuperserf', ST_GeomFromText('POINT(6.482797 52.377312)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nistelrode Parkstraat', ST_GeomFromText('POINT(5.560448 51.702118)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Noordwolde De Jong', ST_GeomFromText('POINT(6.141294 52.892021)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nootdorp Ellen en Erwin Steendam', ST_GeomFromText('POINT(4.390582 52.044122)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nuenen Kernkwartier', ST_GeomFromText('POINT(5.550116 51.46495)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nuenen Ton Grimberg', ST_GeomFromText('POINT(5.54698 51.473983)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nunspeet Industrieweg', ST_GeomFromText('POINT(5.781029 52.370486)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Nuth Markt', ST_GeomFromText('POINT(5.88478 50.9173)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Odijk de Meent', ST_GeomFromText('POINT(5.23329 52.050024)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Oegstgeest Peter de Jong', ST_GeomFromText('POINT(4.470259 52.185805)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Oirsbeek Markt', ST_GeomFromText('POINT(5.907725 50.949431)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Oirschot De Loop', ST_GeomFromText('POINT(5.31341 51.504259)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Oisterwijk Fabriekspad', ST_GeomFromText('POINT(5.1911 51.580992)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Oldenzaal Jumbo Kuipers', ST_GeomFromText('POINT(6.927969 52.316759)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Oldenzaal Nagelstraat', ST_GeomFromText('POINT(6.92698 52.314042)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Ommen Markt', ST_GeomFromText('POINT(6.420739 52.518869)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Oost-Souburg Oranjeplein', ST_GeomFromText('POINT(3.604443 51.465257)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Oosterhout Arkendonk', ST_GeomFromText('POINT(4.86353 51.658229)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Oosterhout Nieuwe Bouwlingstraat', ST_GeomFromText('POINT(4.853041 51.642273)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Oosterhout Zuiderhout', ST_GeomFromText('POINT(4.856886 51.627431)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Oostzaan Westeinde', ST_GeomFromText('POINT(4.878919 52.42776)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Oss Vierhoeksingel', ST_GeomFromText('POINT(5.514527 51.770144)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Oss Wolfskooi', ST_GeomFromText('POINT(5.501909 51.765882)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Oud Beijerland Koninginneplein', ST_GeomFromText('POINT(4.417476 51.824634)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Oud-Gastel Jumbo Broos', ST_GeomFromText('POINT(4.459236 51.588186)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Ouddorp Sperling', ST_GeomFromText('POINT(3.936138 51.812668)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Oude Pekela De Helling', ST_GeomFromText('POINT(7.007317 53.103564)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Ouderkerk ad Amstel Sluisplein', ST_GeomFromText('POINT(4.914565 52.297229)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Oudewater Blankestijn', ST_GeomFromText('POINT(4.86482 52.031158)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Panningen Jumbo Harald en Ilse van Beek', ST_GeomFromText('POINT(5.975569 51.326703)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Papendrecht Meent Passage', ST_GeomFromText('POINT(4.684061 51.826161)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Papendrecht Westpolder', ST_GeomFromText('POINT(4.684962 51.83679)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Poeldijk Boere', ST_GeomFromText('POINT(4.218062 52.021798)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Prinsenbeek Huub Miegielsen', ST_GeomFromText('POINT(4.719296 51.599912)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Purmerend Gildeplein', ST_GeomFromText('POINT(4.984732 52.506142)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Raalte Domineeskamp', ST_GeomFromText('POINT(6.274948 52.384903)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Raalte Kwartel', ST_GeomFromText('POINT(6.286877 52.392947)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Raamsdonksveer Boterpolderlaan', ST_GeomFromText('POINT(4.867307 51.695772)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Reeuwijk Miereakker', ST_GeomFromText('POINT(4.725994 52.045478)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Renesse Pepels', ST_GeomFromText('POINT(3.773411 51.731862)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Reusel Markt', ST_GeomFromText('POINT(5.16139 51.3625)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Rhenen Plantsoenstraat', ST_GeomFromText('POINT(5.568021 51.958275)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Ridderkerk Ridderhof', ST_GeomFromText('POINT(4.60128 51.868761)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Rijen Hapers', ST_GeomFromText('POINT(4.9186 51.590702)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Rijssen Boomkamp', ST_GeomFromText('POINT(6.520921 52.310702)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Roden Heerestraat', ST_GeomFromText('POINT(6.429479 53.137856)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Roermond Roersingelpassage', ST_GeomFromText('POINT(5.984644 51.193503)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Roosendaal Lindenburg', ST_GeomFromText('POINT(4.472888 51.520298)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Roosendaal Rembrandtgalerij', ST_GeomFromText('POINT(4.443489 51.534129)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Roosendaal Van Beethovenlaan', ST_GeomFromText('POINT(4.465786 51.536074)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Rosmalen Passage Vreeburg', ST_GeomFromText('POINT(5.363011 51.718173)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Rosmalen Pastoor van Thiellaan', ST_GeomFromText('POINT(5.3417 51.69955)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Rotterdam Botersloot', ST_GeomFromText('POINT(4.48546 51.92286)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Rotterdam Groenewegen', ST_GeomFromText('POINT(4.496199 51.90312)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Rotterdam Jumbo Drenkelford', ST_GeomFromText('POINT(4.519412 51.877341)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Rotterdam Keizerswaard', ST_GeomFromText('POINT(4.546346 51.886404)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Rotterdam Lage Land', ST_GeomFromText('POINT(4.548923 51.939974)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Rotterdam Le Febre', ST_GeomFromText('POINT(4.550861 51.96227)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Rotterdam Nesselande', ST_GeomFromText('POINT(4.5838 51.98686)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Rotterdam Schiedamseweg', ST_GeomFromText('POINT(4.445285 51.909892)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Rotterdam Vijf Werelddelen', ST_GeomFromText('POINT(4.49871 51.91107)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Sappemeer Noorderstraat', ST_GeomFromText('POINT(6.787227 53.16431)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Scheemda Vredenhovenstraat', ST_GeomFromText('POINT(6.969485 53.17617)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Scherpenzeel Marktstraat', ST_GeomFromText('POINT(5.489845 52.080626)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Scheveningen Van Bergenstraat', ST_GeomFromText('POINT(4.269528 52.097164)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Schiedam ''s-Gravenlandseweg', ST_GeomFromText('POINT(4.402537 51.92955)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Schijndel Rooiseheide', ST_GeomFromText('POINT(5.446227 51.605829)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Schijndel Sint Jorisplein', ST_GeomFromText('POINT(5.432339 51.619075)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Schoorl Heereweg', ST_GeomFromText('POINT(4.693601 52.701062)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Sevenum Phicoop Sevenum', ST_GeomFromText('POINT(6.035856 51.424294)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Sittard Dempseystraat', ST_GeomFromText('POINT(5.853358 51.006401)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Sittard Lemmens', ST_GeomFromText('POINT(5.847365 50.989787)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Sittard Romeinenstraat', ST_GeomFromText('POINT(5.894392 50.996098)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Slagharen van der Schouw', ST_GeomFromText('POINT(6.555704 52.627068)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Sliedrecht Kerkbuurt', ST_GeomFromText('POINT(4.775273 51.81986)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Sliedrecht Populierenhof', ST_GeomFromText('POINT(4.759817 51.82622)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Smilde Veenstate', ST_GeomFromText('POINT(6.445401 52.948429)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Sneek Jumbo Kooistra Tinga', ST_GeomFromText('POINT(5.647527 53.02128)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Sneek Jumbo Kooistra centrum', ST_GeomFromText('POINT(5.667409 53.035496)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Soest Jumbo Arnaud van de Graaf Soest', ST_GeomFromText('POINT(5.308088 52.16473)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Someren Speelheuvelstraat', ST_GeomFromText('POINT(5.711173 51.385729)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Son en Breugel Nieuwstraat', ST_GeomFromText('POINT(5.492391 51.506526)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Spijkenisse Groenewoud', ST_GeomFromText('POINT(4.337996 51.83978)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Spijkenisse Hadewijchplaat', ST_GeomFromText('POINT(4.361974 51.833594)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Spijkenisse Vlinderveen', ST_GeomFromText('POINT(4.343776 51.83281)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo St. Annaland Bert Slingerland', ST_GeomFromText('POINT(4.105913 51.602095)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo St. Michielsgestel Nieuwstraat', ST_GeomFromText('POINT(5.352683 51.64161)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo St. Nicolaasga Jan Altenburg', ST_GeomFromText('POINT(5.740684 52.923021)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo St. Oedenrode Pieter Christiaanstraat', ST_GeomFromText('POINT(5.456683 51.571694)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Stadskanaal Froukje Sloot', ST_GeomFromText('POINT(6.955697 52.986461)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Stadskanaal Poststraat', ST_GeomFromText('POINT(6.941398 52.994637)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Steenbergen Floraplein', ST_GeomFromText('POINT(4.316309 51.580374)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Steenwijk Jumbo Bert Vis', ST_GeomFromText('POINT(6.109348 52.787036)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Stein Raadhuisplein', ST_GeomFromText('POINT(5.765977 50.968011)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Stiens Kooistra', ST_GeomFromText('POINT(5.758061 53.262826)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Stiphout Dorpsstraat', ST_GeomFromText('POINT(5.621118 51.485199)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Stramproy Dr. Schaepmanstraat', ST_GeomFromText('POINT(5.722356 51.192888)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Surhuisterveen Torenplein', ST_GeomFromText('POINT(6.16463 53.18122)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Ter Apel Nederveen Cappelstraat', ST_GeomFromText('POINT(7.059699 52.875166)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Terheijden Hoofdstraat', ST_GeomFromText('POINT(4.754919 51.64099)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Terneuzen Lorentzlaan', ST_GeomFromText('POINT(3.84753 51.332382)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Terneuzen Schuttershofweg', ST_GeomFromText('POINT(3.828217 51.333874)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Terschelling Formerum', ST_GeomFromText('POINT(5.30609 53.389424)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Teteringen Scheperij', ST_GeomFromText('POINT(4.822281 51.609694)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Tiel De Kranshof', ST_GeomFromText('POINT(5.439404 51.89144)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Tilburg AaBe-straat', ST_GeomFromText('POINT(5.106239 51.551547)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Tilburg Amer', ST_GeomFromText('POINT(5.046396 51.544681)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Tilburg Bart van Peltplein', ST_GeomFromText('POINT(5.084088 51.574567)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Tilburg Broekhovenseweg', ST_GeomFromText('POINT(5.091938 51.546857)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Tilburg Heyhoef', ST_GeomFromText('POINT(5.005621 51.577827)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Tilburg Lieve Vrouweplein', ST_GeomFromText('POINT(5.07979 51.554104)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Tilburg Pater van de Elsenplein', ST_GeomFromText('POINT(5.094109 51.540449)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Tilburg Rosa Castellanosstraat', ST_GeomFromText('POINT(5.04519 51.536608)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Tolkamer ''s-Gravenwaardsedijk', ST_GeomFromText('POINT(6.101176 51.856504)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Twello Jumbo Binnendijk', ST_GeomFromText('POINT(6.099551 52.235426)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Uden Drossaard', ST_GeomFromText('POINT(5.631399 51.662699)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Uden Muziekplein', ST_GeomFromText('POINT(5.612578 51.66946)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Uitgeest Melis Stokelaan', ST_GeomFromText('POINT(4.708856 52.530769)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Uithoorn Peter de Jong', ST_GeomFromText('POINT(4.827601 52.246622)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Uithuizen Oosterstraat', ST_GeomFromText('POINT(6.67705 53.40581)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Ulft Middelgraaf', ST_GeomFromText('POINT(6.379668 51.891198)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Ulvenhout Chaamseweg', ST_GeomFromText('POINT(4.795884 51.541724)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Urk De Hofstee', ST_GeomFromText('POINT(5.59564 52.665623)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Urk Jumbo Urkerhard', ST_GeomFromText('POINT(5.625297 52.662767)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Urmond Paalweg', ST_GeomFromText('POINT(5.76853 50.989282)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Utrecht Biltstraat', ST_GeomFromText('POINT(5.129767 52.095381)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Utrecht Franciscusdreef', ST_GeomFromText('POINT(5.09324 52.1267)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Utrecht Ina Boudier Bakkerlaan', ST_GeomFromText('POINT(5.134643 52.082126)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Utrecht Merelstraat', ST_GeomFromText('POINT(5.115163 52.100556)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Utrecht Nebraskadreef', ST_GeomFromText('POINT(5.09255 52.126605)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Utrecht Overkapel', ST_GeomFromText('POINT(5.127659 52.115515)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Utrecht Verlengde Houtrakgracht', ST_GeomFromText('POINT(5.055079 52.087449)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Vaassen Hamer', ST_GeomFromText('POINT(5.969374 52.287392)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Valkenswaard Willibrorduslaan', ST_GeomFromText('POINT(5.453791 51.357532)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Veendam Sorghvliet', ST_GeomFromText('POINT(6.859911 53.095878)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Veenendaal Dr. Slotenmaker de Bruinestr', ST_GeomFromText('POINT(5.542167 52.018386)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Veenendaal Huibers', ST_GeomFromText('POINT(5.543731 52.029749)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Veenendaal Paddestoelenlaan', ST_GeomFromText('POINT(5.553395 52.005953)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Veenendaal Ronde Erf', ST_GeomFromText('POINT(5.569442 52.032377)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Veghel De Bunders', ST_GeomFromText('POINT(5.558496 51.623732)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Veghel Foodmarkt Veghel', ST_GeomFromText('POINT(5.52916 51.615748)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Veghel de Boekt', ST_GeomFromText('POINT(5.546608 51.609031)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Veldhoven Citycentrum', ST_GeomFromText('POINT(5.40817 51.418445)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Velp IJsselstraat', ST_GeomFromText('POINT(5.971713 51.991638)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Venlo Tegelpoort', ST_GeomFromText('POINT(6.165824 51.368672)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Venlo Vinckenhofstraat', ST_GeomFromText('POINT(6.187199 51.370024)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Venray Winters Kiosk', ST_GeomFromText('POINT(5.992614 51.521699)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Venray Winters Veltumse Kleffen', ST_GeomFromText('POINT(5.964891 51.519435)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Vianen Gerrit van Bruchem', ST_GeomFromText('POINT(5.094176 51.991481)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Vinkeveen Plevierenlaan', ST_GeomFromText('POINT(4.925864 52.213915)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Vlaardingen Wuijts', ST_GeomFromText('POINT(4.347535 51.929489)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Vlagtwedde Dr. P. Rinsemastraat', ST_GeomFromText('POINT(7.107055 53.02603)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Vlijmen Oliemaat', ST_GeomFromText('POINT(5.221231 51.694559)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Vlissingen Hermesweg', ST_GeomFromText('POINT(3.586242 51.453082)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Volkel Schakelplein', ST_GeomFromText('POINT(5.655073 51.644085)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Voorburg Julianaplein', ST_GeomFromText('POINT(4.358499 52.075516)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Voorschoten Jumbo Roemer', ST_GeomFromText('POINT(4.460986 52.142133)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Voorthuizen Hoofdstraat', ST_GeomFromText('POINT(5.603517 52.186591)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Vriezenveen Fikkert', ST_GeomFromText('POINT(6.619707 52.410116)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Vroomshoop Veld', ST_GeomFromText('POINT(6.566767 52.456427)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Vught Vughtse Hart', ST_GeomFromText('POINT(5.298887 51.65762)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Waalwijk Professor Asserweg', ST_GeomFromText('POINT(5.052378 51.676893)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Waddinxveen Gouweplein', ST_GeomFromText('POINT(4.65095 52.040349)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Wageningen Verberne', ST_GeomFromText('POINT(5.662942 51.978542)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Wanssum Burg. de Weichshavenstraat', ST_GeomFromText('POINT(6.079579 51.536662)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Wassenaar Jumbo Mark Blaauw Luifelbaan', ST_GeomFromText('POINT(4.394572 52.145623)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Wateringen Vliethof', ST_GeomFromText('POINT(4.274751 52.02525)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Weert Heerschap Boshoverweg', ST_GeomFromText('POINT(5.686057 51.262014)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Weert Heerschap Collegeplein', ST_GeomFromText('POINT(5.704549 51.25355)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Weert Heerschap Friezenstraat', ST_GeomFromText('POINT(5.734341 51.253516)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Weert Heerschap Oranjeplein', ST_GeomFromText('POINT(5.707866 51.243426)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Westerbork Vinke', ST_GeomFromText('POINT(6.60704 52.849851)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Westerhaar Veld', ST_GeomFromText('POINT(6.61879 52.4597)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Westervoort Mennings', ST_GeomFromText('POINT(5.972927 51.954932)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Wierden Dikkensweg', ST_GeomFromText('POINT(6.594828 52.359754)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Wijchen Zuiderpoort', ST_GeomFromText('POINT(5.724256 51.799795)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Wijk Bij Duurstede De Heul', ST_GeomFromText('POINT(5.341617 51.979235)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Wijk bij Duurstede Langbroekseweg', ST_GeomFromText('POINT(5.340934 51.983363)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Willemstad Achterstraat', ST_GeomFromText('POINT(4.43978 51.692135)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Wilnis WC Veenzijde', ST_GeomFromText('POINT(4.896847 52.200316)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Winschoten Van der Weele', ST_GeomFromText('POINT(7.035044 53.14741)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Winssen Leegstraat', ST_GeomFromText('POINT(5.706499 51.880788)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Winterswijk Europalaan', ST_GeomFromText('POINT(6.705995 51.971362)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Woerden Jumbo Nap Polanen', ST_GeomFromText('POINT(4.9049 52.086085)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Woerden Stef Bijlsma', ST_GeomFromText('POINT(4.870138 52.088354)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Woerden Van Well', ST_GeomFromText('POINT(4.863341 52.077242)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Wolvega Markt', ST_GeomFromText('POINT(6.005416 52.8785)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Wommels Terp', ST_GeomFromText('POINT(5.588159 53.108561)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Woudenberg ''t Schilt', ST_GeomFromText('POINT(5.412983 52.081909)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Wouw Kloosterstraat', ST_GeomFromText('POINT(4.388977 51.520602)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zaltbommel Fiep Westendorpplein', ST_GeomFromText('POINT(5.251408 51.802704)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zeeland Kerkstraat', ST_GeomFromText('POINT(5.674078 51.696945)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zeist Johan van Oldenbarneveltlaan', ST_GeomFromText('POINT(5.239731 52.098069)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zeist Korte Steijnlaan', ST_GeomFromText('POINT(5.248135 52.088909)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zeist Laan van Vollenhove', ST_GeomFromText('POINT(5.22216 52.1009)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zelhem Bergstraat', ST_GeomFromText('POINT(6.346952 52.007206)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zetten Teun van Blijderveen', ST_GeomFromText('POINT(5.711857 51.929334)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zevenaar van Heemskerk Kampsingel', ST_GeomFromText('POINT(6.078237 51.93151)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zevenaar van Heemskerk Oldebarneveldtlaan', ST_GeomFromText('POINT(6.064158 51.930226)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zevenbergen Zandberg', ST_GeomFromText('POINT(4.590481 51.647711)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zevenhuizen Dorpsstraat', ST_GeomFromText('POINT(4.579452 52.012988)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zoetermeer Groenblauwlaan', ST_GeomFromText('POINT(4.494595 52.039918)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zoetermeer Kentgensplein', ST_GeomFromText('POINT(4.478458 52.066911)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zoetermeer Middelwaard', ST_GeomFromText('POINT(4.468679 52.055543)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zoetermeer Oosterheemplein', ST_GeomFromText('POINT(4.541213 52.059349)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zoetermeer Quirinegang', ST_GeomFromText('POINT(4.477336 52.043506)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zoetermeer Ruijter Leidsewallen', ST_GeomFromText('POINT(4.510174 52.069415)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zoeterwoude Jan Versluis', ST_GeomFromText('POINT(4.49679 52.12103)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zuidlaren Stationsweg', ST_GeomFromText('POINT(6.685443 53.093135)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zuidwolde Termeulen', ST_GeomFromText('POINT(6.428343 52.675426)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zutphen Rudolf Steinerlaan', ST_GeomFromText('POINT(6.244301 52.126134)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zutphen Ruys de Beerenbrouckstraat', ST_GeomFromText('POINT(6.204294 52.133391)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zwaagdijk-Oost Zwaagdijk', ST_GeomFromText('POINT(5.117826 52.696381)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zwijndrecht Walburg', ST_GeomFromText('POINT(4.650512 51.821797)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zwolle Assendorperstraat', ST_GeomFromText('POINT(6.101963 52.5063)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zwolle De Dobbe', ST_GeomFromText('POINT(6.101823 52.529653)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zwolle Groeneveld', ST_GeomFromText('POINT(6.082377 52.526612)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zwolle Kerssies', ST_GeomFromText('POINT(6.106414 52.5213)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zwolle Nagelmaeker', ST_GeomFromText('POINT(6.055194 52.533564)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zwolle Sellekamp', ST_GeomFromText('POINT(6.11728 52.487886)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zwolle Veemarkt', ST_GeomFromText('POINT(6.084357 52.510133)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo Zwolle Westenholte', ST_GeomFromText('POINT(6.048675 52.522354)', 4326));</sql>
+        <sql>INSERT INTO store (address_name, location) VALUES ('Jumbo s-Gravenzande Hart van s-Gravenzande', ST_GeomFromText('POINT(4.163299 52.002103)', 4326));</sql>
+    </changeSet>
+
+</databaseChangeLog>

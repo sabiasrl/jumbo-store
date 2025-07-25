@@ -1,0 +1,174 @@
+trigger:
+  - features/postgis
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  dockerComposeProjectName: 'jumbo-store-postgis'
+  mavenVersion: '3.9.6'
+  javaVersion: '21'
+
+stages:
+- stage: Build
+  displayName: 'Build and Test'
+  jobs:
+  - job: BuildAndTest
+    displayName: 'Build and Test Application'
+    steps:
+    - task: UseJavaVersion@0
+      displayName: 'Use Java 21'
+      inputs:
+        versionSpec: '21'
+        jdkArchitectureOption: 'x64'
+
+    - task: Cache@2
+      displayName: 'Cache Maven packages'
+      inputs:
+        key: 'maven | "$(Agent.OS)" | **/pom.xml'
+        restoreKeys: |
+          maven | "$(Agent.OS)"
+          maven
+        path: $(MAVEN_CACHE_FOLDER)
+
+    - script: |
+        echo "Installing Maven..."
+        wget https://archive.apache.org/dist/maven/maven-3/$(mavenVersion)/binaries/apache-maven-$(mavenVersion)-bin.tar.gz
+        tar -xzf apache-maven-$(mavenVersion)-bin.tar.gz
+        sudo mv apache-maven-$(mavenVersion) /opt/maven
+        echo "M2_HOME=/opt/maven" >> $GITHUB_ENV
+        echo "/opt/maven/bin" >> $GITHUB_PATH
+      displayName: 'Install Maven'
+
+    - script: |
+        cd jumbo-stores-finder
+        mvn clean compile test
+      displayName: 'Build and Unit Test'
+      env:
+        MAVEN_OPTS: '-Dmaven.repo.local=$(MAVEN_CACHE_FOLDER)'
+
+    - script: |
+        echo "Building Docker images..."
+        docker-compose build
+      displayName: 'Build Docker Images'
+
+- stage: IntegrationTest
+  displayName: 'Integration Tests with PostGIS'
+  dependsOn: Build
+  condition: succeeded()
+  jobs:
+  - job: PostGISIntegrationTest
+    displayName: 'PostGIS Integration Test'
+    steps:
+    - script: |
+        echo "Starting PostGIS database..."
+        docker-compose up -d postgis
+        echo "Waiting for PostGIS to be ready..."
+        
+        # Wait for PostGIS to be healthy
+        for i in {1..30}; do
+          if docker-compose exec -T postgis pg_isready -U jumbo -d jumbo; then
+            echo "PostGIS is ready!"
+            break
+          fi
+          echo "Waiting for PostGIS... ($i/30)"
+          sleep 10
+        done
+        
+        # Final check
+        if ! docker-compose exec -T postgis pg_isready -U jumbo -d jumbo; then
+          echo "PostGIS failed to start properly"
+          docker-compose logs postgis
+          exit 1
+        fi
+      displayName: 'Start and Verify PostGIS Database'
+
+    - script: |
+        echo "Starting application with PostGIS..."
+        docker-compose up -d jumbo-stores-finder
+        echo "Waiting for application to start..."
+        
+        # Wait for application to be ready
+        for i in {1..60}; do
+          if curl -s http://localhost:8080/actuator/health | grep -q "UP"; then
+            echo "Application is ready!"
+            break
+          fi
+          echo "Waiting for application... ($i/60)"
+          sleep 5
+        done
+        
+        # Final check
+        if ! curl -s http://localhost:8080/actuator/health | grep -q "UP"; then
+          echo "Application failed to start properly"
+          docker-compose logs jumbo-stores-finder
+          exit 1
+        fi
+      displayName: 'Start and Verify Application'
+
+- stage: E2EValidation
+  displayName: 'E2E Validation'
+  dependsOn: IntegrationTest
+  condition: succeeded()
+  jobs:
+  - job: E2ETest
+    displayName: 'E2E API Validation'
+    steps:
+    - script: |
+        echo "Running E2E validation test..."
+        echo "Testing endpoint: http://localhost:8080/stores?latitude=51.6167&longitude=5.5486"
+        
+        # Make the API call
+        RESPONSE=$(curl -s "http://localhost:8080/stores?latitude=51.6167&longitude=5.5486")
+        echo "Response received:"
+        echo "$RESPONSE"
+        
+        # Expected response (formatted for comparison)
+        EXPECTED='[{"addressName":"Jumbo Veghel de Boekt","latitude":51.609031,"longitude":5.546608,"distance":0.8637754032755139},{"addressName":"Jumbo Veghel De Bunders","latitude":51.623732,"longitude":5.558496,"distance":1.0383457053343215},{"addressName":"Jumbo Veghel Foodmarkt Veghel","latitude":51.615748,"longitude":5.52916,"distance":1.3463794546389556},{"addressName":"Jumbo Heeswijk Dinther St. Servatiusstraat","latitude":51.648961,"longitude":5.474725,"distance":6.23422969913618},{"addressName":"Jumbo Schijndel Rooiseheide","latitude":51.605829,"longitude":5.446227,"distance":7.1716009219970624}]'
+        
+        # Remove whitespace and newlines for comparison
+        CLEAN_RESPONSE=$(echo "$RESPONSE" | tr -d ' \n\r')
+        CLEAN_EXPECTED=$(echo "$EXPECTED" | tr -d ' \n\r')
+        
+        echo "Verifying response matches expected output..."
+        
+        if [ "$CLEAN_RESPONSE" = "$CLEAN_EXPECTED" ]; then
+          echo "✅ SUCCESS: Response matches expected output"
+          echo "✅ E2E validation passed successfully!"
+          EXIT_CODE=0
+        else
+          echo "❌ FAILURE: Response does not match expected output"
+          echo "Expected: $CLEAN_EXPECTED"
+          echo "Received: $CLEAN_RESPONSE"
+          echo "❌ E2E validation failed!"
+          EXIT_CODE=1
+        fi
+        
+        echo "Test completed with exit code: $EXIT_CODE"
+        exit $EXIT_CODE
+      displayName: 'Validate API Response'
+
+    - script: |
+        echo "Cleaning up containers..."
+        docker-compose down -v
+        docker system prune -f
+      displayName: 'Cleanup'
+      condition: always()
+
+- stage: Deploy
+  displayName: 'Deploy PostGIS Version'
+  dependsOn: E2EValidation
+  condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/features/postgis'))
+  jobs:
+  - job: DeployPostGIS
+    displayName: 'Deploy PostGIS Application'
+    steps:
+    - script: |
+        echo "PostGIS deployment stage"
+        echo "This would typically include:"
+        echo "- Pushing Docker images to container registry"
+        echo "- Deploying to staging environment with PostGIS"
+        echo "- Running additional PostGIS-specific tests"
+        echo "- Promoting to production if all tests pass"
+        echo "✅ PostGIS feature deployment completed successfully!"
+      displayName: 'Deploy PostGIS Application' 
