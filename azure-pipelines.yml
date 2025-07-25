@@ -6,7 +6,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  dockerComposeProjectName: 'jumbo-store-postgis'
+  JAVA_VERSION: '21'
 
 stages:
 - stage: Build
@@ -15,12 +15,12 @@ stages:
   - job: BuildAndTest
     displayName: 'Build and Test Application'
     steps:
-    - script: |
-        echo "Installing Java 21..."
-        sudo apt-get update
-        sudo apt-get install -y openjdk-21-jdk
-        echo "Java 21 installation completed"
-      displayName: 'Install Java 21'
+    - task: JavaToolInstaller@0
+      displayName: 'Install Java 21 (Temurin)'
+      inputs:
+        versionSpec: '21'
+        jdkArchitectureOption: 'x64'
+        jdkSourceOption: 'AzureStorage'
 
     - script: |
         echo "Verifying Java version..."
