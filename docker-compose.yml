@@ -1,16 +1,27 @@
 version: '3.8'
 services:
+  postgis:
+    image: postgis/postgis:16-3.4
+    environment:
+      POSTGRES_DB: jumbo
+      POSTGRES_USER: jumbo
+      POSTGRES_PASSWORD: jumbo
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U jumbo -d jumbo"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
   jumbo-stores-finder:
     build: ./jumbo-stores-finder
+    depends_on:
+      postgis:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgis:5432/jumbo
+      SPRING_DATASOURCE_USERNAME: jumbo
+      SPRING_DATASOURCE_PASSWORD: jumbo
+      SPRING_DATASOURCE_DRIVER_CLASS_NAME: org.postgresql.Driver
     ports:
       - "8080:8080"
-  e2e:
-    build:
-      context: .
-      dockerfile: e2e/Dockerfile
-    depends_on:
-      - jumbo-stores-finder
-    command: ./run-tests.sh
-    volumes:
-      - ./reports/surefire-reports:/tests/target/surefire-reports
-      - ./reports/site:/tests/target/site 

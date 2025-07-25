@@ -16,28 +16,33 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-public class StoreServiceTest {
+class StoreServiceTest {
 
-	@Mock
-	private StoreRepository storeRepository;
+    @Mock
+    private StoreRepository storeRepository;
 
-	@InjectMocks
-	private StoreService storeService;
+    @InjectMocks
+    private StoreService storeService;
 
-	@Test
-	public void findClosestStores_shouldReturnClosestStores() {
-		Store store1 = new Store(1L, "Store 1", 52.0, 5.0);
-		Store store2 = new Store(2L, "Store 2", 52.1, 5.1);
-		Store store3 = new Store(3L, "Store 3", 52.2, 5.2);
-		Store store4 = new Store(4L, "Store 4", 52.3, 5.3);
-		Store store5 = new Store(5L, "Store 5", 52.4, 5.4);
-		Store store6 = new Store(6L, "Store 6", 53.0, 6.0);
+    @Test
+    void findClosestStores_shouldReturnClosestStores() {
+        // Arrange
+        Store store1 = new Store(1L, "Store 1", 52.0, 5.0);
+        Store store2 = new Store(2L, "Store 2", 52.1, 5.1);
+        Store store3 = new Store(3L, "Store 3", 52.2, 5.2);
+        Store store4 = new Store(4L, "Store 4", 52.3, 5.3);
+        Store store5 = new Store(5L, "Store 5", 52.4, 5.4);
 
-		when(storeRepository.findAll()).thenReturn(Arrays.asList(store1, store2, store3, store4, store5, store6));
+        // Mock PostGIS query
+        when(storeRepository.findClosestStoresPostgis(5.0, 52.0, 5))
+            .thenReturn(Arrays.asList(store1, store2, store3, store4, store5));
 
-		List<StoreDto> closestStores = storeService.findClosestStores(52.0, 5.0);
+        // Act
+        List<StoreDto> closestStores = storeService.findClosestStores(52.0, 5.0);
 
-		assertEquals(5, closestStores.size());
-		assertEquals("Store 1", closestStores.get(0).addressName());
-	}
+        // Assert
+        assertEquals(5, closestStores.size());
+        assertEquals("Store 1", closestStores.get(0).addressName());
+        // The first store should be closest (distance 0) since it's at the same coordinates
+    }
 }
