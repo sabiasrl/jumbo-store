@@ -15,6 +15,12 @@ stages:
   - job: BuildAndTest
     displayName: 'Build and Test Application'
     steps:
+    - script: |
+        sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+        docker-compose version
+      displayName: 'Install Docker Compose'
+
     - task: JavaToolInstaller@0
       displayName: 'Install Java 21 (Temurin)'
       inputs:
@@ -49,12 +55,6 @@ stages:
   - job: PostGISIntegrationTest
     displayName: 'Integration Test'
     steps:
-    - script: |
-        sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-        sudo chmod +x /usr/local/bin/docker-compose
-        docker-compose version
-      displayName: 'Install Docker Compose'
-
     - script: |
         echo "Starting PostGIS database..."
         docker-compose up -d postgis
