@@ -42,13 +42,19 @@ stages:
       displayName: 'Build Docker Images'
 
 - stage: IntegrationTest
-  displayName: 'Integration Tests with PostGIS'
+  displayName: 'Integration Tests'
   dependsOn: Build
   condition: succeeded()
   jobs:
   - job: PostGISIntegrationTest
-    displayName: 'PostGIS Integration Test'
+    displayName: 'Integration Test'
     steps:
+    - script: |
+        sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+        sudo chmod +x /usr/local/bin/docker-compose
+        docker-compose version
+      displayName: 'Install Docker Compose'
+
     - script: |
         echo "Starting PostGIS database..."
         docker-compose up -d postgis
@@ -73,7 +79,7 @@ stages:
       displayName: 'Start and Verify PostGIS Database'
 
     - script: |
-        echo "Starting application with PostGIS..."
+        echo "Starting application jumbo-store-finder ..."
         docker-compose up -d jumbo-stores-finder
         echo "Waiting for application to start..."
         
@@ -145,19 +151,19 @@ stages:
       condition: always()
 
 - stage: Deploy
-  displayName: 'Deploy PostGIS Version'
+  displayName: 'Deploy stage'
   dependsOn: E2EValidation
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/features/postgis'))
   jobs:
   - job: DeployPostGIS
-    displayName: 'Deploy PostGIS Application'
+    displayName: 'Deploy jumbo-store-finder Application'
     steps:
     - script: |
-        echo "PostGIS deployment stage"
+        echo "jumbo-store-finder deployment stage"
         echo "This would typically include:"
         echo "- Pushing Docker images to container registry"
-        echo "- Deploying to staging environment with PostGIS"
-        echo "- Running additional PostGIS-specific tests"
+        echo "- Deploying to staging environment"
+        echo "- Running additional jumbo-store-finder specific tests"
         echo "- Promoting to production if all tests pass"
-        echo "✅ PostGIS feature deployment completed successfully!"
-      displayName: 'Deploy PostGIS Application' 
+        echo "✅ jumbo-store-finder feature deployment completed successfully!"
+      displayName: 'Deploy jumbo-store-finder Application' 
