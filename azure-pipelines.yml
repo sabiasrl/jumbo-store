@@ -1,4 +1,5 @@
 trigger:
+  - main
   - features/postgis
 
 pool:
@@ -15,10 +16,18 @@ stages:
     displayName: 'Build and Test Application'
     steps:
     - script: |
-        echo "Checking Java version..."
+        echo "Installing Java 21..."
+        sudo apt-get update
+        sudo apt-get install -y openjdk-21-jdk
+        echo "Java 21 installation completed"
+      displayName: 'Install Java 21'
+
+    - script: |
+        echo "Verifying Java version..."
         java -version
-        echo "Java is available on Ubuntu agent"
-      displayName: 'Verify Java Installation'
+        echo "JAVA_HOME: $JAVA_HOME"
+        echo "Java is now available"
+      displayName: 'Verify Java 21 Installation'
 
     - script: |
         echo "Building and testing with Maven wrapper..."
