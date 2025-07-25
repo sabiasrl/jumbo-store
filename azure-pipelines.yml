@@ -43,11 +43,11 @@ stages:
       displayName: 'Build Docker Images'
 
 - stage: IntegrationTest
-  displayName: 'Integration Tests'
+  displayName: 'Integration, E2E Tests'
   dependsOn: Build
   condition: succeeded()
   jobs:
-  - job: PostGISIntegrationTest
+  - job: IntegrationTest
     displayName: 'Integration Test'
     steps:
     - script: |
@@ -145,10 +145,10 @@ stages:
 
 - stage: Deploy
   displayName: 'Deploy stage'
-  dependsOn: E2EValidation
+  dependsOn: IntegrationTest
   condition: and(succeeded(), eq(variables['Build.SourceBranch'], 'refs/heads/features/postgis'))
   jobs:
-  - job: DeployPostGIS
+  - job: Deploy
     displayName: 'Deploy jumbo-store-finder Application'
     steps:
     - script: |
