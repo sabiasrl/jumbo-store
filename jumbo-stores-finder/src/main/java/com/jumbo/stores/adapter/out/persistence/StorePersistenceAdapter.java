@@ -4,30 +4,26 @@ import com.jumbo.stores.application.port.out.StoreRepository;
 import com.jumbo.stores.domain.model.Store;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
-
-import java.util.List;
-import java.util.stream.Collectors;
+import reactor.core.publisher.Flux;
 
 @Component
 @RequiredArgsConstructor
 public class StorePersistenceAdapter implements StoreRepository {
 
-    private final StoreJpaRepository storeJpaRepository;
+    private final StoreR2dbcRepository storeR2dbcRepository;
 
     @Override
-    public List<Store> findClosestStores(double longitude, double latitude, int limit) {
-        List<StoreJpaEntity> entities = storeJpaRepository.findClosestStoresPostgis(longitude, latitude, limit);
-        return entities.stream()
-                .map(this::mapToDomain)
-                .collect(Collectors.toList());
+    public Flux<Store> findClosestStores(double longitude, double latitude, int limit) {
+        return storeR2dbcRepository.findClosestStores(longitude, latitude, limit)
+                .map(this::mapToDomain);
     }
 
-    private Store mapToDomain(StoreJpaEntity entity) {
+    private Store mapToDomain(StoreR2dbcEntity entity) {
         return new Store(
                 entity.getId(),
                 entity.getAddressName(),
-                entity.getLocation().getY(), // latitude
-                entity.getLocation().getX()  // longitude
+                entity.getLatitude(),
+                entity.getLongitude()
         );
     }
 } 

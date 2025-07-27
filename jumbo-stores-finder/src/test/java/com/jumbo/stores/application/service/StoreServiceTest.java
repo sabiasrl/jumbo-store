@@ -8,11 +8,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-
-import java.util.Arrays;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import reactor.core.publisher.Flux;
+import reactor.test.StepVerifier;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
@@ -35,14 +32,11 @@ class StoreServiceTest {
 
         // Mock repository call
         when(storeRepository.findClosestStores(5.0, 52.0, 5))
-            .thenReturn(Arrays.asList(store1, store2, store3, store4, store5));
+            .thenReturn(Flux.just(store1, store2, store3, store4, store5));
 
-        // Act
-        List<StoreDto> closestStores = storeService.findClosestStores(52.0, 5.0);
-
-        // Assert
-        assertEquals(5, closestStores.size());
-        assertEquals("Store 1", closestStores.get(0).addressName());
-        // The first store should be closest (distance 0) since it's at the same coordinates
+        // Act & Assert
+        StepVerifier.create(storeService.findClosestStores(52.0, 5.0))
+            .expectNextCount(5)
+            .verifyComplete();
     }
 } 

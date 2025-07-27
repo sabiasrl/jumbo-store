@@ -17,15 +17,19 @@
             <column name="address_name" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="location" type="GEOMETRY(Point,4326)">
+            <column name="latitude" type="DOUBLE PRECISION">
+                <constraints nullable="false"/>
+            </column>
+            <column name="longitude" type="DOUBLE PRECISION">
                 <constraints nullable="false"/>
             </column>
         </createTable>
     </changeSet>
 
     <changeSet id="003" author="jumbo">
-        <createIndex tableName="store" indexName="idx_store_location">
-            <column name="location" type="GEOMETRY"/>
+        <createIndex tableName="store" indexName="idx_store_coordinates">
+            <column name="latitude"/>
+            <column name="longitude"/>
         </createIndex>
     </changeSet>
 

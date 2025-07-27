@@ -30,9 +30,17 @@ public class PostgresContainerConfig {
 
     @DynamicPropertySource
     static void configureProperties(DynamicPropertyRegistry registry) {
-        registry.add("spring.datasource.url", postgres::getJdbcUrl);
-        registry.add("spring.datasource.username", postgres::getUsername);
-        registry.add("spring.datasource.password", postgres::getPassword);
-        registry.add("spring.jpa.hibernate.ddl-auto", () -> "create-drop");
+        // Convert JDBC URL to R2DBC URL format
+        String jdbcUrl = postgres.getJdbcUrl();
+        // Extract host and port from JDBC URL: jdbc:postgresql://localhost:port/database
+        String host = postgres.getHost();
+        int port = postgres.getMappedPort(5432);
+        String database = postgres.getDatabaseName();
+        String r2dbcUrl = String.format("r2dbc:postgresql://%s:%d/%s", host, port, database);
+        
+        registry.add("spring.r2dbc.url", () -> r2dbcUrl);
+        registry.add("spring.r2dbc.username", postgres::getUsername);
+        registry.add("spring.r2dbc.password", postgres::getPassword);
+        registry.add("spring.liquibase.enabled", () -> false);
     }
 } 

@@ -11,7 +11,7 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.hasSize;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@Import(com.jumbo.stores.PostgresContainerConfig.class)
+@Import({com.jumbo.stores.PostgresContainerConfig.class, com.jumbo.stores.TestDataConfig.class})
 class StoreControllerIT {
 
     @LocalServerPort

@@ -1,8 +1,8 @@
 package com.jumbo.stores.application.port.in;
 
 import com.jumbo.stores.adapter.in.web.dto.StoreDto;
-import java.util.List;
+import reactor.core.publisher.Flux;
 
 public interface FindClosestStoresUseCase {
-    List<StoreDto> findClosestStores(double latitude, double longitude);
+    Flux<StoreDto> findClosestStores(double latitude, double longitude);
 } 
