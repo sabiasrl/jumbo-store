@@ -22,8 +22,8 @@ public class StorePersistenceAdapter implements StoreRepository {
         return new Store(
                 entity.getId(),
                 entity.getAddressName(),
-                entity.getLatitude(),
-                entity.getLongitude()
+                entity.getLocation(),
+                entity.getDistance() != null ? entity.getDistance() : 0.0
         );
     }
 } 

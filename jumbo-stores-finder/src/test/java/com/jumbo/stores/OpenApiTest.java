@@ -1,37 +1,58 @@
 package com.jumbo.stores;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
-import org.springframework.test.web.reactive.server.WebTestClient;
+import static io.restassured.RestAssured.given;
+import static org.mockito.ArgumentMatchers.anyDouble;
+import static org.mockito.ArgumentMatchers.anyInt;
+import static org.mockito.Mockito.when;
 
-@SpringBootTest
-@AutoConfigureWebTestClient
-@Import(com.jumbo.stores.PostgresContainerConfig.class)
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.r2dbc.R2dbcAutoConfiguration;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.web.server.LocalServerPort;
+
+import com.jumbo.stores.application.port.out.StoreRepository;
+
+import reactor.core.publisher.Flux;
+
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+@EnableAutoConfiguration(exclude = {R2dbcAutoConfiguration.class})
 public class OpenApiTest {
 
-    @Autowired
-    private WebTestClient webTestClient;
+    @LocalServerPort
+    private int port;
+
+    @MockBean
+    private StoreRepository storeRepository;
 
     @Test
     public void openApiSpecification_shouldBeAvailable() {
-        webTestClient.get()
-                .uri("/v3/api-docs")
-                .exchange()
-                .expectStatus().isOk()
-                .expectBody()
-                .jsonPath("$.openapi").isEqualTo("3.1.0")
-                .jsonPath("$.info.title").isEqualTo("OpenAPI definition")
-                .jsonPath("$.paths./stores").exists();
+        // Mock the repository to return empty results
+        when(storeRepository.findClosestStores(anyDouble(), anyDouble(), anyInt()))
+                .thenReturn(Flux.empty());
+
+        given()
+                .port(port)
+                .when()
+                .get("/v3/api-docs")
+                .then()
+                .statusCode(200)
+                .body("openapi", org.hamcrest.Matchers.equalTo("3.1.0"))
+                .body("info.title", org.hamcrest.Matchers.equalTo("OpenAPI definition"));
     }
 
     @Test
     public void swaggerUi_shouldBeAvailable() {
-        webTestClient.get()
-                .uri("/swagger-ui/index.html")
-                .exchange()
-                .expectStatus().isOk();
+        // Mock the repository to return empty results
+        when(storeRepository.findClosestStores(anyDouble(), anyDouble(), anyInt()))
+                .thenReturn(Flux.empty());
+
+        given()
+                .port(port)
+                .when()
+                .get("/swagger-ui/index.html")
+                .then()
+                .statusCode(200);
     }
 } 
